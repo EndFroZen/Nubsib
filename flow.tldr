@@ -109,9 +109,9 @@
 			"typeName": "binding"
 		},
 		{
-			"x": 349.01130078387587,
-			"y": -193.35911331127727,
-			"z": 0.7780827681000001,
+			"x": 2225.1829009840894,
+			"y": 754.7484552563335,
+			"z": 0.38846250808515587,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -216,7 +216,7 @@
 							"content": [
 								{
 									"type": "text",
-									"text": "1.  file main table by RAG"
+									"text": "1.  find main table by RAG for question"
 								}
 							]
 						}
@@ -228,11 +228,9 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": "shape:QaVIX4Li6eISQHMNg2adZ",
+			"editingShapeId": null,
 			"croppingShapeId": null,
-			"selectedShapeIds": [
-				"shape:QaVIX4Li6eISQHMNg2adZ"
-			],
+			"selectedShapeIds": [],
 			"hoveredShapeId": null,
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
@@ -403,6 +401,168 @@
 			"typeName": "shape"
 		},
 		{
+			"x": -1482.4952157776945,
+			"y": 523.7615289012024,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:yzN0F_MIADZYjtSVR02tx",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1070.954216651661,
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.723219858345853,
+				"richText": {
+					"type": "doc",
+					"attrs": {
+						"dir": "auto"
+					},
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "[*]1. ask and answer"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "[]2. RAG"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t[]2.1 data"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[]2.1.1 ovst_table.md"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[]2.1.2 "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t[]2.2 gen datbase vector "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t[]2.3 query vector database"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t[]2.4 agent find question for use main table"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "[]3. history"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "[]4. authentication"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "[]5. frontend relaese "
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a88UPh4G",
+			"typeName": "shape"
+		},
+		{
 			"meta": {},
 			"id": "page:page",
 			"name": "Page 1",
@@ -419,9 +579,7 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {
-				"tldraw:geo": "rectangle"
-			},
+			"stylesForNextShape": {},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
