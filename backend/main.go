@@ -2,24 +2,36 @@ package main
 
 import (
 	"api-nubsib/routes"
-	"log"
+	"api-nubsib/service"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	app := fiber.New()
+	// Load environment variables from .env file
+	if err := godotenv.Load(); err != nil {
+		service.FLog("Error loading .env file")
+	}
+	// Update LogEnabled after loading .env because global variables key initialized before main runs
+	service.LogEnabled = os.Getenv("LOG_ENABLED") == "true"
 
+	service.FLog("Starting server...")
+	service.FLog("Port:", os.Getenv("PORT"))
+	service.FLog("Log Enabled:", os.Getenv("LOG_ENABLED"))
+	app := fiber.New()
+	origins := os.Getenv("ALLOW_ORIGINS")
 	// 🔓 CORS configuration
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3000,http://localhost:5173",
+		AllowOrigins: origins,
 		AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
 		AllowHeaders: "Content-Type, Authorization,Authorization",
 	}))
 
 	// Test route
 	routes.Route(app)
-
-	log.Fatal(app.Listen(":3000"))
+	port := os.Getenv("PORT")
+	service.FLog(app.Listen(":" + port))
 }

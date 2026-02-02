@@ -7,7 +7,8 @@ import (
 )
 
 func Route(app *fiber.App) {
-	app.Group("/api")
-	app.Get("/health",controller.HealthCheck)
-	
+	api := app.Group("/api")
+
+	api.Get("/health", controller.HealthCheck)
+	api.Post("/chat", controller.Chat)
 }

@@ -8,4 +8,5 @@ import (
 func Version() string {
 	version, _ := os.ReadFile("../VERSION")
 	return strings.TrimSpace(string(version))
+	
 }
