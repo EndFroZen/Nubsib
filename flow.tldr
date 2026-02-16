@@ -7,7 +7,7 @@
 			"com.tldraw.asset": 1,
 			"com.tldraw.camera": 1,
 			"com.tldraw.document": 2,
-			"com.tldraw.instance": 25,
+			"com.tldraw.instance": 26,
 			"com.tldraw.instance_page_state": 5,
 			"com.tldraw.page": 1,
 			"com.tldraw.instance_presence": 6,
@@ -109,9 +109,9 @@
 			"typeName": "binding"
 		},
 		{
-			"x": 2225.1829009840894,
-			"y": 754.7484552563335,
-			"z": 0.38846250808515587,
+			"x": 726.813958545303,
+			"y": -205.12758046206426,
+			"z": 0.5760132473073641,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -401,8 +401,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -1482.4952157776945,
-			"y": 523.7615289012024,
+			"x": -1205.8838124891195,
+			"y": 706.522823609811,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -579,7 +579,9 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {},
+			"stylesForNextShape": {
+				"tldraw:geo": "rectangle"
+			},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
@@ -593,8 +595,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1175,
-				"h": 939
+				"w": 1251,
+				"h": 934
 			},
 			"insets": [
 				false,
@@ -617,6 +619,7 @@
 			"isReadonly": false,
 			"meta": {},
 			"duplicateProps": null,
+			"cameraState": "idle",
 			"id": "instance:instance",
 			"currentPageId": "page:page",
 			"typeName": "instance"
