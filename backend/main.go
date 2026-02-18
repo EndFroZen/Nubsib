@@ -21,6 +21,10 @@ func main() {
 	service.FLog("Starting server...")
 	service.FLog("Port:", os.Getenv("PORT"))
 	service.FLog("Log Enabled:", os.Getenv("LOG_ENABLED"))
+
+	// Start RAG generation (data ingestion) in background
+	go service.RagGen()
+
 	app := fiber.New()
 	origins := os.Getenv("ALLOW_ORIGINS")
 	// 🔓 CORS configuration

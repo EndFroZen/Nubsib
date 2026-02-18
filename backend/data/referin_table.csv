@@ -1,40 +1,39 @@
-name,type,data_type,description,Example / Enum
+name,type,data_type,description
 referin,table,string,ตารางนี้เก็บข้อมูลการส่งต่อผู้ป่วยเข้า (Refer In) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ icode (รหัสยา) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ
-vn,column,int,เลขที่การมารับบริการ (Visit Number),211113103432,
-rfrcs,column,string,รหัสสาเหตุการส่งต่อ,,
-refer_date,column,date,วันที่ทำใบส่งต่อ,1978-11-13,
-hospcode,column,string,รหัสสถานพยาบาลต้นทาง,1978-11-13,
-date_in,column,date,วันที่รับเข้า (กรณี Refer In),1978-11-13
-clinic,column,string,รหัสคลินิก,,
-hn,column,int,เลขประจำตัวผู้ป่วย (Hospital Number),0362101,
-icd10,column,string,รหัสโรคที่วินิจฉัย,"",
-refer_type,column,string,ประเภทการส่งต่อ (เช่น ส่งต่อรักษา/ส่งต่อกลับ),1,
-docno,column,string,เลขที่เอกสารใบส่งต่อ,,
-depcode,column,string,รหัสแผนก,123456789
-refer_point,column,string,จุดประสงค์การส่งต่อ,123456789
-staff,column,string,รหัสเจ้าหน้าที่ผู้บันทึก,lib002
-confirm_date,column,date,วันที่ยืนยันการส่งต่อ,2000-01-01
-pre_diagnosis,column,string,การวินิจฉัยเบื้องต้น,123456789
-ac_type,column,string,ประเภทอุบัติเหตุ/ฉุกเฉิน,123456789
-claim_code,column,string,รหัสเคลม/รหัสเรียกเก็บ,123456789
-ac_ae,column,string,ระบุว่าเป็นกรณีฉุกเฉิน (AE),123456789
-ac_emtype,column,string,ประเภทผู้ป่วยฉุกเฉิน,123456789
-hos_guid,column,string,GUID ของสถานพยาบาล,123456789
-has_expire_date,column,string,มีวันหมดอายุใบส่งต่อหรือไม่,N
-expire_date,column,date,วันที่หมดอายุใบส่งต่อ,2000-01-01
-f43_causein_id,column,string,รหัสสาเหตุการส่งต่อเข้า (ตามแฟ้ม 43 แฟ้ม),1
-refer_hospcode,column,string,รหัสสถานพยาบาลปลายทาง,11248
-referin_number,column,string,เลขที่รับ Refer In,123456789
-referout_number,column,string,เลขที่ Refer Out,123456789
-referin_id,column,string,รหัสรายการ Refer In,123456789
-refer_time,column,time,เวลาทำรายการส่งต่อ,123456789
-refer_begin_time,column,time,เวลาเริ่มดำเนินการส่งต่อ,123456789
-refer_end_time,column,time,เวลาสิ้นสุดการส่งต่อ,123456789
-refer_process_time_hour,column,int,ระยะเวลาดำเนินการ (ชั่วโมง),123456789
-refer_process_time_minute,column,int,ระยะเวลาดำเนินการ (นาที),123456789
-refer_response_type_id,column,string,รหัสประเภทการตอบรับการส่งต่อ,123456789
-refer_doctor_name,column,string,ชื่อแพทย์ผู้รับ/ผู้ส่งต่อ,123456789
-refer_diag,column,string,วินิจฉัยที่ระบุในใบส่งต่อ,123456789
-cloud_refer_cause_text,column,string,ข้อความสาเหตุการส่งต่อ (Cloud Refer),123456789
-cloud_rfrcs_text,column,string,ข้อความรายละเอียดสาเหตุการส่งต่อ,123456789
-
+vn,column,int,เลขที่การมารับบริการ (Visit Number)
+rfrcs,column,string,รหัสสาเหตุการส่งต่อ
+refer_date,column,date,วันที่ทำใบส่งต่อ
+hospcode,column,string,รหัสสถานพยาบาลต้นทาง
+date_in,column,date,วันที่รับเข้า (กรณี Refer In)
+clinic,column,string,รหัสคลินิก
+hn,column,int,เลขประจำตัวผู้ป่วย (Hospital Number)
+icd10,column,string,รหัสโรคที่วินิจฉัย
+refer_type,column,string,ประเภทการส่งต่อ (เช่น ส่งต่อรักษา/ส่งต่อกลับ)
+docno,column,string,เลขที่เอกสารใบส่งต่อ
+depcode,column,string,รหัสแผนก
+refer_point,column,string,จุดประสงค์การส่งต่อ
+staff,column,string,รหัสเจ้าหน้าที่ผู้บันทึก
+confirm_date,column,date,วันที่ยืนยันการส่งต่อ
+pre_diagnosis,column,string,การวินิจฉัยเบื้องต้น
+ac_type,column,string,ประเภทอุบัติเหตุ/ฉุกเฉิน
+claim_code,column,string,รหัสเคลม/รหัสเรียกเก็บ
+ac_ae,column,string,ระบุว่าเป็นกรณีฉุกเฉิน (AE)
+ac_emtype,column,string,ประเภทผู้ป่วยฉุกเฉิน
+hos_guid,column,string,GUID ของสถานพยาบาล
+has_expire_date,column,string,มีวันหมดอายุใบส่งต่อหรือไม่
+expire_date,column,date,วันที่หมดอายุใบส่งต่อ
+f43_causein_id,column,string,รหัสสาเหตุการส่งต่อเข้า (ตามแฟ้ม 43 แฟ้ม)
+refer_hospcode,column,string,รหัสสถานพยาบาลปลายทาง
+referin_number,column,string,เลขที่รับ Refer In
+referout_number,column,string,เลขที่ Refer Out
+referin_id,column,string,รหัสรายการ Refer In
+refer_time,column,time,เวลาทำรายการส่งต่อ
+refer_begin_time,column,time,เวลาเริ่มดำเนินการส่งต่อ
+refer_end_time,column,time,เวลาสิ้นสุดการส่งต่อ
+refer_process_time_hour,column,int,ระยะเวลาดำเนินการ (ชั่วโมง)
+refer_process_time_minute,column,int,ระยะเวลาดำเนินการ (นาที)
+refer_response_type_id,column,string,รหัสประเภทการตอบรับการส่งต่อ
+refer_doctor_name,column,string,ชื่อแพทย์ผู้รับ/ผู้ส่งต่อ
+refer_diag,column,string,วินิจฉัยที่ระบุในใบส่งต่อ
+cloud_refer_cause_text,column,string,ข้อความสาเหตุการส่งต่อ (Cloud Refer)
+cloud_rfrcs_text,column,string,ข้อความรายละเอียดสาเหตุการส่งต่อ

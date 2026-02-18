@@ -1,11 +1,11 @@
-name,type,data_type,description,Example / Enum
+name,type,data_type,description
 referout,table,string,ตารางนี้เก็บข้อมูลการส่งต่อผู้ป่วยออก (Refer Out) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ icode (รหัสยา) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ
-referout_id,column,string,รหัสรายการส่งต่อออก (Primary Key),19445
-vn,column,int,เลขที่การมารับบริการ,570004253
-rfrcs,column,string,รหัสสาเหตุการส่งต่อ,
-refer_date,column,date,วันที่ทำใบส่งต่อ,2014-04-18
-hospcode,column,string,รหัสสถานพยาบาลต้นทาง,10724
-refer_type,column,string,ประเภทการส่งต่อ,1
+referout_id,column,string,รหัสรายการส่งต่อออก (Primary Key)
+vn,column,int,เลขที่การมารับบริการ
+rfrcs,column,string,รหัสสาเหตุการส่งต่อ
+refer_date,column,date,วันที่ทำใบส่งต่อ
+hospcode,column,string,รหัสสถานพยาบาลต้นทาง
+refer_type,column,string,ประเภทการส่งต่อ
 refer_cause,column,string,สาเหตุการส่งต่อ (ข้อความ)
 refer_number,column,string,เลขที่ใบส่งต่อ
 doctor,column,string,รหัสแพทย์ผู้ส่งต่อ
