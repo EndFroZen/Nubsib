@@ -1,0 +1,67 @@
+name,type,data_type,description,Example / Enum
+opdscreen,table,string,ตารางนี้เก็บข้อมูลการคัดกรองผู้ป่วยนอก (Outpatient Screening) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits)
+hos_guid,column,string,รหัส GUID ของรายการ,580730083758
+vn,column,int,Visit Number เลขที่รับบริการ,0310112
+hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย,2015-07-30
+vstdate,column,date,วันที่รับบริการ,08:37:58
+vsttime,column,time,เวลารับบริการ,08:00:00
+begintime,column,time,เวลาเริ่มตรวจ,08:00:00
+outtime,column,time,เวลาออกจากห้องตรวจ,08:00:00
+endtime,column,time,เวลาสิ้นสุดการรักษา,78.000
+bpd,column,int,ความดันตัวล่าง (Diastolic),128.000
+bps,column,int,ความดันตัวบน (Systolic),0.000
+bw,column,float,น้ำหนัก (กก.),"CA colon มาให้ยาเคมีหลังการผ่าตัด ECOG=0,PPS=100"
+cc,column,string,Chief Complaint อาการสำคัญ,CA colon มาให้ยาเคมีหลังการผ่าตัด ECOG=0 PPS=100
+hr,column,int,อัตราการเต้นหัวใจ,80
+pe,column,string,ผลตรวจร่างกาย,70.000
+pulse,column,int,ชีพจร,37.000
+temperature,column,float,อุณหภูมิร่างกาย,36.5
+note,column,string,บันทึกเพิ่มเติม,20.000
+rr,column,int,อัตราการหายใจ,20
+cc_begin_date,column,date,วันที่เริ่มมีอาการสำคัญ,2022-01-01
+cc_cause_of_visit,column,string,สาเหตุที่มารับบริการ,ปวดหัว
+cc_sign,column,string,ลักษณะอาการ,0:วัน
+cc_duration,column,string,ระยะเวลาที่เป็น,1 วัน
+cc_position,column,string,ตำแหน่งที่มีอาการ,หัว
+cc_note,column,string,หมายเหตุอาการสำคัญ,ไม่มี
+his_begin_date,column,date,วันที่เริ่มประวัติการเจ็บป่วยครั้งนี้,2022-01-01
+his_frequency,column,string,ความถี่ของอาการ,1 ครั้ง
+his_severity,column,string,ความรุนแรงของอาการ,ปานกลาง
+his_cause,column,string,สาเหตุที่คาดว่าเกี่ยวข้อง,ไม่ทราบ
+his_expand,column,string,อาการลุกลาม,ไม่มี
+his_cause_increase,column,string,ปัจจัยกระตุ้นให้อาการมากขึ้น,ไม่มี
+his_cause_decrease,column,string,ปัจจัยที่ทำให้อาการดีขึ้น,ไม่มี
+his_related_sign,column,string,อาการร่วม,160
+height,column,float,ส่วนสูง (ซม.),080
+screen_dep,column,string,แผนกคัดกรอง,N
+waiting,column,string,สถานะรอคอย,0.000
+fbs,column,float,น้ำตาลในเลือด (FBS),N
+bmi,column,float,ดัชนีมวลกาย,N
+tg,column,float,Triglyceride,N
+hdl,column,float,HDL Cholesterol,N
+ldl,column,float,LDL Cholesterol,100.0
+cholesterol,column,float,Cholesterol รวม,200.0
+bun,column,float,BUN,20.0
+creatinine,column,float,Creatinine,1.0
+hba1c,column,float,HbA1c,5.0
+egfr,column,float,eGFR,90.0
+spo2,column,int,ค่าออกซิเจนปลายนิ้ว,95
+waist,column,float,รอบเอว,80.0
+pain_score,column,int,ระดับความปวด,5
+pre_pain_score,column,int,ระดับความปวดก่อนรักษา,N
+post_pain_score,column,int,ระดับความปวดหลังรักษา,N
+smoking_type_id,column,string,ประเภทการสูบบุหรี่,N
+drinking_type_id,column,string,ประเภทการดื่มแอลกอฮอล์,N
+pregnancy,column,string,สถานะการตั้งครรภ์,N
+lmp_date,column,date,วันที่ประจำเดือนครั้งสุดท้าย,N
+update_datetime,column,datetime,วันที่และเวลาแก้ไขข้อมูลล่าสุด,N
+inr,column,float,ค่า INR,N
+hb,column,float,Hemoglobin,14.0
+sodium,column,float,Sodium,140.0
+potassium,column,float,Potassium,4.0
+chloride,column,float,Chloride,100.0
+tco2,column,float,TCO2,24.0
+ast,column,float,AST,30.0
+alt,column,float,ALT,30.0
+g6pd,column,string,ผลตรวจ G6PD,ปกติ
+bsa,column,float,พื้นที่ผิวร่างกาย (Body Surface Area),1.73

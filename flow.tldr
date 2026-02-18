@@ -109,9 +109,9 @@
 			"typeName": "binding"
 		},
 		{
-			"x": 726.813958545303,
-			"y": -205.12758046206426,
-			"z": 0.5760132473073641,
+			"x": 1372.077707996336,
+			"y": 6.573565258087797,
+			"z": 0.43289404587645014,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -228,10 +228,12 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": null,
+			"editingShapeId": "shape:yzN0F_MIADZYjtSVR02tx",
 			"croppingShapeId": null,
-			"selectedShapeIds": [],
-			"hoveredShapeId": null,
+			"selectedShapeIds": [
+				"shape:yzN0F_MIADZYjtSVR02tx"
+			],
+			"hoveredShapeId": "shape:yzN0F_MIADZYjtSVR02tx",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -401,8 +403,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -1205.8838124891195,
-			"y": 706.522823609811,
+			"x": -1224.2355267290382,
+			"y": 731.7564306896993,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -412,7 +414,7 @@
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 1070.954216651661,
+				"w": 985.8433108355478,
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": true,
@@ -467,7 +469,7 @@
 							"content": [
 								{
 									"type": "text",
-									"text": "\t\t[]2.1.1 ovst_table.md"
+									"text": "\t\t[*]2.1.1 ovst_table.csv"
 								}
 							]
 						},
@@ -479,7 +481,127 @@
 							"content": [
 								{
 									"type": "text",
-									"text": "\t\t[]2.1.2 "
+									"text": "\t\t[*]2.1.2 patient_table.csv"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.3 opdscreen"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.4 ovstdiag"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[]2.1.5 optimrece"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.6 s_drugitems"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.7 referin"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.8 pttype"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.9 opd_allergy"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[]2.1.10 icd101"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[]2.1.11 icd9cm1"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t[*]2.1.12 referout"
 								}
 							]
 						},
@@ -579,9 +701,7 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {
-				"tldraw:geo": "rectangle"
-			},
+			"stylesForNextShape": {},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
@@ -595,8 +715,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1251,
-				"h": 934
+				"w": 1270,
+				"h": 971
 			},
 			"insets": [
 				false,

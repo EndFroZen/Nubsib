@@ -1,0 +1,55 @@
+name,type,data_type,description,Example / Enum
+ovst,table,string,ตารางนี้เก็บข้อมูลการมารับบริการผู้ป่วยนอกหลัก (Outpatient Visit) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits)
+hos_guid,column,string,รหัส GUID ของรายการ (รหัสเฉพาะของ visit),123456789
+vn,column,int,Visit Number เลขที่รับบริการผู้ป่วยนอก,123456789
+hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย,123456789
+an,column,int,Admission Number เลขที่ผู้ป่วยใน (ถ้ามี),123456789
+vstdate,column,date,วันที่รับบริการ,2000-01-01
+vsttime,column,time,เวลารับบริการ,12:00:00
+doctor,column,string,รหัสแพทย์ผู้ตรวจ,123456789
+hospmain,column,string,รหัสหน่วยบริการหลักตามสิทธิ,123456789
+hospsub,column,string,รหัสหน่วยบริการรองตามสิทธิ,123456789
+oqueue,column,int,ลำดับคิวผู้ป่วยนอก,123456789
+ovstist,column,string,สถานะ visit (ภายในระบบ),123456789
+ovstost,column,string,สถานะการจำหน่าย/ออกจากระบบ,123456789
+pttype,column,string,ประเภทสิทธิการรักษา,123456789
+pttypeno,column,string,เลขที่สิทธิการรักษา,123456789
+rfrics,column,string,รหัสสถานพยาบาลที่ส่งต่อเข้า,123456789
+rfrilct,column,string,สถานที่/แผนกที่ส่งต่อเข้า,123456789
+rfrocs,column,string,รหัสสถานพยาบาลที่ส่งต่อออก,123456789
+rfrolct,column,string,สถานที่/แผนกที่ส่งต่อออก,123456789
+spclty,column,string,รหัสสาขาความเชี่ยวชาญแพทย์,123456789
+rcpt_disease,column,string,โรคที่ระบุในใบเสร็จ,123456789
+hcode,column,string,รหัสสถานพยาบาล,123456789
+cur_dep,column,string,แผนกปัจจุบันที่ผู้ป่วยอยู่,123456789
+cur_dep_busy,column,string,สถานะแผนกปัจจุบันกำลังให้บริการ,123456789
+last_dep,column,string,แผนกก่อนหน้าที่ผู้ป่วยไป,123456789
+cur_dep_time,column,time,เวลาที่เข้ารับบริการแผนกปัจจุบัน,12:00:00
+rx_queue,column,int,ลำดับคิวรับยา,123456789
+diag_text,column,string,ข้อความสรุปการวินิจฉัย,123456789
+pt_subtype,column,string,ประเภทย่อยของผู้ป่วย,123456789
+main_dep,column,string,แผนกหลักที่รับบริการ,123456789
+main_dep_queue,column,int,ลำดับคิวของแผนกหลัก,123456789
+finance_summary_date,column,date,วันที่สรุปการเงิน,2000-01-01
+visit_type,column,string,ประเภทการมารับบริการ,123456789
+node_id,column,string,รหัสเครื่อง/จุดบริการที่บันทึกข้อมูล,123456789
+contract_id,column,string,รหัสสัญญาที่ใช้สิทธิ,123456789
+waiting,column,string,สถานะการรอคอย,123456789
+rfri_icd10,column,string,รหัส ICD10 จากการส่งต่อเข้า,123456789
+o_refer_number,column,string,เลขที่ใบส่งต่อออก,123456789
+has_insurance,column,string,มีประกันเพิ่มเติมหรือไม่,123456789
+i_refer_number,column,string,เลขที่ใบส่งต่อเข้า,123456789
+refer_type,column,string,ประเภทการส่งต่อ,123456789
+o_refer_dep,column,string,แผนกที่ส่งต่อออก,123456789
+staff,column,string,เจ้าหน้าที่ผู้บันทึกข้อมูล,123456789
+command_doctor,column,string,แพทย์ผู้สั่งการรักษา,123456789
+send_person,column,string,ผู้ส่งต่อ,123456789
+pt_priority,column,string,ระดับความเร่งด่วนผู้ป่วย,123456789
+finance_lock,column,string,สถานะล็อคการเงิน,123456789
+oldcode,column,string,รหัสเดิม (ถ้ามีการแปลงระบบ),123456789
+sign_doctor,column,string,แพทย์ผู้ลงนาม,123456789
+anonymous_visit,column,string,สถานะ visit ไม่ระบุตัวตน,123456789
+anonymous_vn,column,string,เลข VN สำหรับผู้ไม่ระบุตัวตน,123456789
+pt_capability_type_id,column,string,รหัสประเภทความสามารถสิทธิผู้ป่วย,123456789
+at_hospital,column,string,สถานะอยู่ในโรงพยาบาลหรือไม่,123456789
+ovst_key,column,string,คีย์หลักของตาราง visit,123456789

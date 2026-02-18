@@ -1,0 +1,4 @@
+name,type,data_type,description
+icd9cm1,table,string,ตารางนี้เก็บข้อมูลรหัสหัตถการ icd9cm
+code,column,string,รหัสหัตถการ / รหัสบริการ
+name,column,string,ชื่อหัตถการ / ชื่อบริการ

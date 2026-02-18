@@ -1,0 +1,80 @@
+name,type,data_type,description,Example / Enum
+referout,table,string,ตารางนี้เก็บข้อมูลการส่งต่อผู้ป่วยออก (Refer Out) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ icode (รหัสยา) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ
+referout_id,column,string,รหัสรายการส่งต่อออก (Primary Key),19445
+vn,column,int,เลขที่การมารับบริการ,570004253
+rfrcs,column,string,รหัสสาเหตุการส่งต่อ,
+refer_date,column,date,วันที่ทำใบส่งต่อ,2014-04-18
+hospcode,column,string,รหัสสถานพยาบาลต้นทาง,10724
+refer_type,column,string,ประเภทการส่งต่อ,1
+refer_cause,column,string,สาเหตุการส่งต่อ (ข้อความ)
+refer_number,column,string,เลขที่ใบส่งต่อ
+doctor,column,string,รหัสแพทย์ผู้ส่งต่อ
+clinic,column,string,รหัสคลินิก
+refer_point,column,string,จุดประสงค์การส่งต่อ
+refercheck1,column,string,สถานะตรวจสอบขั้นตอนที่ 1
+refercheck2,column,string,สถานะตรวจสอบขั้นตอนที่ 2
+refercheck3,column,string,สถานะตรวจสอบขั้นตอนที่ 3
+refercheck4,column,string,สถานะตรวจสอบขั้นตอนที่ 4
+refercheck2_date,column,date,วันที่ตรวจสอบขั้นตอนที่ 2
+refercheck3_text,column,string,หมายเหตุขั้นตอนที่ 3
+refercheck4_text,column,string,หมายเหตุขั้นตอนที่ 4
+department,column,string,แผนกที่ส่งต่อ
+refer_time,column,time,เวลาทำรายการส่งต่อ
+hn,column,int,เลขประจำตัวผู้ป่วย
+pttype,column,string,ประเภทสิทธิการรักษา
+pre_diagnosis,column,string,การวินิจฉัยเบื้องต้น
+pmh,column,string,ประวัติโรคประจำตัว (Past Medical History)
+hpi,column,string,ประวัติอาการปัจจุบัน (History of Present Illness)
+lab_text,column,string,ผลตรวจทางห้องปฏิบัติการ
+treatment_text,column,string,การรักษาที่ให้ไปแล้ว
+other_text,column,string,ข้อมูลเพิ่มเติมอื่น ๆ
+pdx,column,string,วินิจฉัยหลัก (Primary Diagnosis)
+docno,column,string,เลขที่เอกสาร
+depcode,column,string,รหัสแผนก
+confirm_date,column,date,วันที่ยืนยันการส่งต่อ
+confirm_text,column,string,ข้อความยืนยัน
+confirm_diagnosis,column,string,วินิจฉัยยืนยัน
+dest_hospital_department,column,string,แผนกปลายทางของโรงพยาบาลที่รับต่อ
+spclty,column,string,สาขาเฉพาะทาง
+with_nurse,column,string,มีพยาบาลไปด้วยหรือไม่
+with_ambulance,column,string,ใช้รถพยาบาลหรือไม่
+due_date,column,date,วันที่ครบกำหนด
+referout_status_id,column,string,รหัสสถานะใบส่งต่อออก
+referout_transfer_hospcode,column,string,รหัสสถานพยาบาลที่โอนต่อ
+hos_guid,column,string,GUID ของสถานพยาบาล
+refer_begin_time,column,time,เวลาเริ่มดำเนินการ
+refer_end_time,column,time,เวลาสิ้นสุดการส่งต่อ
+refer_process_time_hour,column,int,ระยะเวลา (ชั่วโมง)
+refer_process_time_minute,column,int,ระยะเวลา (นาที)
+refer_response_type_id,column,string,รหัสประเภทการตอบรับ
+senttonet,column,string,สถานะส่งข้อมูลเข้าระบบเครือข่าย
+rfo_sent,column,string,สถานะส่ง Refer Out แล้ว
+refer_hospcode,column,string,รหัสสถานพยาบาลปลายทาง
+expire_date,column,date,วันที่หมดอายุใบส่งต่อ
+dest_hospcode_instruction_text,column,string,คำแนะนำถึงปลายทาง
+refer_write_staff,column,string,เจ้าหน้าที่ผู้เขียนใบส่งต่อ
+refer_in_province,column,string,ส่งต่อภายในจังหวัด
+refer_in_region,column,string,ส่งต่อภายในเขตสุขภาพ
+refer_response_text,column,string,ข้อความตอบรับจากปลายทาง
+vstdate,column,date,วันที่มารับบริการ
+i_refer_number,column,string,เลขที่ Refer ภายในระบบ
+diagnosis_text,column,string,รายละเอียดวินิจฉัย
+cloud_refer_number,column,string,เลขที่ Cloud Refer
+ptstatus_text,column,string,สถานะผู้ป่วย
+referout_type_id,column,string,รหัสประเภทการส่งต่อออก
+referout_emergency_type_id,column,string,รหัสประเภทฉุกเฉิน
+referout_sp_type_id,column,string,รหัสประเภทสิทธิพิเศษ
+request_text,column,string,ข้อความคำขอส่งต่อ
+car_registration_no,column,string,ทะเบียนรถที่ใช้ส่งต่อ
+refer_acuity_type_id,column,string,รหัสระดับความรุนแรง (Acuity)
+update_datetime,column,datetime,วันที่/เวลาแก้ไขล่าสุด
+accept_point,column,string,จุดรับผู้ป่วยปลายทาง
+with_doctor,column,string,มีแพทย์ไปด้วยหรือไม่
+issue_digital_certificate,column,string,ออกใบรับรองดิจิทัลหรือไม่
+service_request_sct_code,column,string,รหัสบริการ (SNOMED CT)
+service_request_sct_name,column,string,ชื่อบริการ (SNOMED CT)
+update_moph_phr,column,string,อัปเดตข้อมูลไปยัง MOPH PHR
+doctor_cert_id,column,string,รหัสใบประกอบวิชาชีพแพทย์
+issued_digital_cert,column,string,ออกใบรับรองดิจิทัลแล้ว
+moph_refer_expire_type_id,column,string,ประเภทการหมดอายุ Refer (MOPH)
+issued_moph_refer,column,string,สถานะออกใบส่งต่อ MOPH แล้ว

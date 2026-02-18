@@ -1,0 +1,4 @@
+name,type,data_type,description
+icd101,table,string,ตารางนี้เก็บข้อมูลรหัสโรค icd10
+code,column,string,รหัส icd10
+name,column,string,ชื่อ icd10

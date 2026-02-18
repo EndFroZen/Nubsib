@@ -1,0 +1,27 @@
+name,type,data_type,description,Example / Enum
+patient,table,ตารางนี้เก็บข้อมูลทะเบียนประวัติหลักของผู้ป่วย (Static Data) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ
+hn,column,int,เลขประจำตัวผู้ป่วย (Hospital Number),123456789
+pname,column,string,คำนำหน้าชื่อ เช่น นาย นาง น.ส.,นาย
+fname,column,string,ชื่อ,สมชาย
+lname,column,string,นามสกุล,สม
+occupation,column,string,อาชีพ,พนักงาน
+citizenship,column,string,สัญชาติทางกฎหมาย/สัญชาติที่ถืออยู่,ไทย
+birthday,column,date,วันเดือนปีเกิด,2000-01-01
+addrpart,column,string,บ้านเลขที่,123
+moopart,column,string,หมู่ที่,1
+tmbpart,column,string,ตำบล,1
+amppart,column,string,อำเภอ,1
+chwpart,column,string,จังหวัด,1
+bloodgrp,column,string,หมู่เลือด เช่น A B AB O,AB
+drugallergy,column,string,ประวัติการแพ้ยา,ไม่มี
+fathername,column,string,ชื่อบิดา,สมชาย
+hometel,column,string,โทรศัพท์บ้าน,0812345678
+nationality,column,string,สัญชาติ,ไทย
+pttype,column,string,ประเภทสิทธิการรักษา เช่น บัตรทอง ประกันสังคม ข้าราชการ ,44
+sex,column,string,เพศ,ชาย
+workaddr,column,string,ที่อยู่ที่ทำงาน,กรุงเทพมหานคร
+worktel,column,string,โทรศัพท์ที่ทำงาน,0812345678
+hcode,column,string,รหัสสถานพยาบาล (5 หลัก),12345
+cid,column,string,เลขบัตรประชาชน 13 หลัก,1234567890123
+hid,column,string,เลขที่บ้าน (House ID)
+educate,column,string,ระดับการศึกษา,1
