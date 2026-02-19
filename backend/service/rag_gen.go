@@ -48,6 +48,13 @@ func RagGen() {
 
 	// 2. Ensure collection exists
 	collectionName := "medical_knowledge"
+
+	// ลบ collection เก่าแล้วสร้างใหม่ เพราะ format เปลี่ยนจาก row-level → table-level
+	err = deleteCollection(qdrantURL.String(), collectionName)
+	if err != nil {
+		log.Printf("Note: Could not delete old collection (may not exist): %v", err)
+	}
+
 	err = ensureCollectionExists(qdrantURL.String(), collectionName, vectorSize)
 	if err != nil {
 		log.Fatal("Failed to ensure collection exists:", err)
@@ -72,28 +79,21 @@ func RagGen() {
 	}
 
 	// Data directory path
-	dataDir := "./data"
-
-	// Check if data directory exists relative to current execution context?
-	// Usually running from backend root, so ./data is correct if running "go run main.go" from backend/
-	// If running from backend/service, it would be ../data.
-	// Let's assume running from backend root, so "data".
-	// The user's tree command showed "data" is in "backend/data".
-	// main.go is in backend/. So path should be "data".
-	if _, err := os.Stat("data"); os.IsNotExist(err) {
-		// Try absolute path or assume caller context.
-		// Let's just try "data" first.
-		dataDir = "data"
+	dataDir := "data"
+	if _, err := os.Stat(dataDir); os.IsNotExist(err) {
+		dataDir = "./data"
 	}
 
-	// Walk through data directory
+	ctx := context.Background()
+
+	// Walk through data directory — ใช้ table-level ingestion แทน row-level
 	err = filepath.Walk(dataDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
 		if !info.IsDir() && strings.HasSuffix(strings.ToLower(info.Name()), ".csv") {
 			fmt.Printf("Processing file: %s\n", path)
-			if err := ingestFile(ctx, store, path); err != nil {
+			if err := ingestTableLevel(ctx, store, path); err != nil {
 				log.Printf("Error ingesting %s: %v\n", path, err)
 			}
 		}
@@ -104,12 +104,18 @@ func RagGen() {
 		log.Printf("Error walking data directory: %v\n", err)
 	}
 
+	// เพิ่ม relationship document เข้า RAG
+	err = ingestRelationships(ctx, store)
+	if err != nil {
+		log.Printf("Error ingesting relationships: %v\n", err)
+	}
+
 	log.Println("Ingestion complete")
 }
 
-var ctx = context.Background()
-
-func ingestFile(ctx context.Context, store qdrant.Store, filePath string) error {
+// ingestTableLevel — สร้าง 1 document ต่อ 1 table (รวม schema ทั้งตาราง)
+// แทนที่จะสร้าง 1 document ต่อ 1 row (แบบเก่า)
+func ingestTableLevel(ctx context.Context, store qdrant.Store, filePath string) error {
 	f, err := os.Open(filePath)
 	if err != nil {
 		return err
@@ -117,13 +123,31 @@ func ingestFile(ctx context.Context, store qdrant.Store, filePath string) error 
 	defer f.Close()
 
 	reader := csv.NewReader(f)
-	// Read header
+	// Read header: name,type,data_type,description,example
 	headers, err := reader.Read()
 	if err != nil {
 		return err
 	}
 
-	var documents []schema.Document
+	var tableName, tableDesc string
+	var columns []string
+
+	// Find header indices
+	nameIdx, typeIdx, dataTypeIdx, descIdx, exampleIdx := -1, -1, -1, -1, -1
+	for i, h := range headers {
+		switch strings.TrimSpace(h) {
+		case "name":
+			nameIdx = i
+		case "type":
+			typeIdx = i
+		case "data_type":
+			dataTypeIdx = i
+		case "description":
+			descIdx = i
+		case "example":
+			exampleIdx = i
+		}
+	}
 
 	for {
 		record, err := reader.Read()
@@ -131,36 +155,158 @@ func ingestFile(ctx context.Context, store qdrant.Store, filePath string) error 
 			break
 		}
 		if err != nil {
-			return err
+			continue // skip malformed rows
 		}
 
-		// Create a text representation of the row
-		var contentBuilder strings.Builder
-		contentBuilder.WriteString(fmt.Sprintf("File: %s\n", filepath.Base(filePath)))
-		for i, value := range record {
-			if i < len(headers) {
-				contentBuilder.WriteString(fmt.Sprintf("%s: %s\n", headers[i], value))
+		rowType := ""
+		if typeIdx >= 0 && typeIdx < len(record) {
+			rowType = strings.TrimSpace(record[typeIdx])
+		}
+
+		name := ""
+		if nameIdx >= 0 && nameIdx < len(record) {
+			name = strings.TrimSpace(record[nameIdx])
+		}
+
+		desc := ""
+		if descIdx >= 0 && descIdx < len(record) {
+			desc = strings.TrimSpace(record[descIdx])
+		}
+
+		if rowType == "table" {
+			tableName = name
+			tableDesc = desc
+		} else if rowType == "column" {
+			dataType := ""
+			if dataTypeIdx >= 0 && dataTypeIdx < len(record) {
+				dataType = strings.TrimSpace(record[dataTypeIdx])
 			}
-		}
+			example := ""
+			if exampleIdx >= 0 && exampleIdx < len(record) {
+				example = strings.TrimSpace(record[exampleIdx])
+			}
 
-		doc := schema.Document{
-			PageContent: contentBuilder.String(),
-			Metadata: map[string]interface{}{
-				"source": filePath,
-				"row":    strings.Join(record, ","),
-			},
+			colLine := fmt.Sprintf("  - %s (%s): %s", name, dataType, desc)
+			if example != "" && example != "NULL" {
+				colLine += fmt.Sprintf(" [example: %s]", example)
+			}
+			columns = append(columns, colLine)
 		}
-		documents = append(documents, doc)
 	}
 
-	if len(documents) > 0 {
-		_, err := store.AddDocuments(ctx, documents)
-		if err != nil {
-			return err
-		}
-		fmt.Printf("Added %d documents from %s\n", len(documents), filePath)
+	if tableName == "" {
+		return fmt.Errorf("no table found in %s", filePath)
 	}
 
+	// สร้าง 1 document รวม schema ทั้งตาราง
+	var contentBuilder strings.Builder
+	contentBuilder.WriteString(fmt.Sprintf("Table: %s\n", tableName))
+	contentBuilder.WriteString(fmt.Sprintf("Description: %s\n", tableDesc))
+	contentBuilder.WriteString(fmt.Sprintf("Total Columns: %d\n", len(columns)))
+	contentBuilder.WriteString("Columns:\n")
+	for _, col := range columns {
+		contentBuilder.WriteString(col + "\n")
+	}
+
+	doc := schema.Document{
+		PageContent: contentBuilder.String(),
+		Metadata: map[string]interface{}{
+			"source":     filePath,
+			"table_name": tableName,
+			"type":       "table_schema",
+		},
+	}
+
+	_, err = store.AddDocuments(ctx, []schema.Document{doc})
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Added table-level document for: %s (%d columns)\n", tableName, len(columns))
+	return nil
+}
+
+// ingestRelationships — เพิ่ม relationship document เข้า RAG
+func ingestRelationships(ctx context.Context, store qdrant.Store) error {
+	relationships := []struct {
+		content  string
+		metadata map[string]interface{}
+	}{
+		{
+			content: `Relationship: patient → ovst (ผู้ป่วย → visit)
+JOIN: patient.hn = ovst.hn
+ใช้เมื่อ: ต้องการดูข้อมูลผู้ป่วย (ชื่อ นามสกุล วันเกิด) ร่วมกับข้อมูล visit
+คำถามที่เกี่ยวข้อง: ผู้ป่วยมากี่ครั้ง, ชื่อผู้ป่วยที่มา visit`,
+			metadata: map[string]interface{}{"type": "relationship", "tables": "patient,ovst"},
+		},
+		{
+			content: `Relationship: ovst → ovstdiag → icd101 (visit → วินิจฉัย → ชื่อโรค)
+JOIN: ovst.vn = ovstdiag.vn AND ovstdiag.icd10 = icd101.code
+ใช้เมื่อ: ต้องการดูว่าผู้ป่วยเป็นโรคอะไร, สถิติโรค, Top 10 โรค
+คำถามที่เกี่ยวข้อง: โรคที่พบบ่อย, วินิจฉัยโรค, ICD-10`,
+			metadata: map[string]interface{}{"type": "relationship", "tables": "ovst,ovstdiag,icd101"},
+		},
+		{
+			content: `Relationship: ovst → opdscreen (visit → คัดกรอง/Vital Signs)
+JOIN: ovst.vn = opdscreen.vn
+ใช้เมื่อ: ต้องการดูผลคัดกรอง ความดัน น้ำหนัก ส่วนสูง อุณหภูมิ ชีพจร
+คำถามที่เกี่ยวข้อง: ความดัน, vital signs, BMI, น้ำหนัก, Lab`,
+			metadata: map[string]interface{}{"type": "relationship", "tables": "ovst,opdscreen"},
+		},
+		{
+			content: `Relationship: ovst → referout/referin (visit → ส่งต่อ)
+JOIN: ovst.vn = referout.vn / ovst.vn = referin.vn
+ใช้เมื่อ: ต้องการดูข้อมูลการส่งต่อผู้ป่วย
+คำถามที่เกี่ยวข้อง: ส่งต่อออก, ส่งต่อเข้า, refer`,
+			metadata: map[string]interface{}{"type": "relationship", "tables": "ovst,referout,referin"},
+		},
+		{
+			content: `Relationship: ovst → pttype (visit → สิทธิการรักษา)
+JOIN: ovst.pttype = pttype.pttype
+ใช้เมื่อ: ต้องการดูชื่อสิทธิ, จำนวนผู้ป่วยตามสิทธิ
+คำถามที่เกี่ยวข้อง: สิทธิ, บัตรทอง, ประกันสังคม, UC`,
+			metadata: map[string]interface{}{"type": "relationship", "tables": "ovst,pttype"},
+		},
+		{
+			content: `Relationship: patient → opd_allerg (ผู้ป่วย → แพ้ยา)
+JOIN: patient.hn = opd_allerg.hn
+ใช้เมื่อ: ต้องการดูประวัติแพ้ยาของผู้ป่วย
+คำถามที่เกี่ยวข้อง: แพ้ยา, allergy, ADR`,
+			metadata: map[string]interface{}{"type": "relationship", "tables": "patient,opd_allerg"},
+		},
+	}
+
+	var docs []schema.Document
+	for _, rel := range relationships {
+		docs = append(docs, schema.Document{
+			PageContent: rel.content,
+			Metadata:    rel.metadata,
+		})
+	}
+
+	_, err := store.AddDocuments(ctx, docs)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Added %d relationship documents\n", len(docs))
+	return nil
+}
+
+func deleteCollection(baseURL, collectionName string) error {
+	deleteURL := fmt.Sprintf("%s/collections/%s", baseURL, collectionName)
+	req, err := http.NewRequest("DELETE", deleteURL, nil)
+	if err != nil {
+		return err
+	}
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		return fmt.Errorf("failed to delete collection, status: %s", resp.Status)
+	}
+	log.Printf("Deleted old collection: %s\n", collectionName)
 	return nil
 }
 

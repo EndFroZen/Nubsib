@@ -109,9 +109,9 @@
 			"typeName": "binding"
 		},
 		{
-			"x": 1372.077707996336,
-			"y": 6.573565258087797,
-			"z": 0.43289404587645014,
+			"x": 1187.6724252926397,
+			"y": -398.4286911472259,
+			"z": 0.5761819750615551,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -403,8 +403,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -1224.2355267290382,
-			"y": 731.7564306896993,
+			"x": -972.5789212191048,
+			"y": 688.3673607741937,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -577,7 +577,7 @@
 							"content": [
 								{
 									"type": "text",
-									"text": "\t\t[]2.1.10 icd101"
+									"text": "\t\t[*]2.1.10 icd101"
 								}
 							]
 						},
@@ -589,7 +589,7 @@
 							"content": [
 								{
 									"type": "text",
-									"text": "\t\t[]2.1.11 icd9cm1"
+									"text": "\t\t[*]2.1.11 icd9cm1"
 								}
 							]
 						},
@@ -613,7 +613,7 @@
 							"content": [
 								{
 									"type": "text",
-									"text": "\t[]2.2 gen datbase vector "
+									"text": "\t[*]2.2 gen datbase vector "
 								}
 							]
 						},

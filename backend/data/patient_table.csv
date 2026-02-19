@@ -5,23 +5,23 @@ pname,column,string,คำนำหน้าชื่อ เช่น นาย 
 fname,column,string,ชื่อ,เอไอ
 lname,column,string,นามสกุล,ทอสอบ
 occupation,column,string,อาชีพ,015
-citizenship,column,string,สัญชาติทางกฎหมาย/สัญชาติที่ถืออยู่,99 
+citizenship,column,string,สัญชาติทางกฎหมาย/สัญชาติที่ถืออยู่,99
 birthday,column,date,วันเดือนปีเกิด,2011-07-06
 addrpart,column,string,บ้านเลขที่,47/6
-moopart,column,string,หมู่ที่,2  
+moopart,column,string,หมู่ที่,2
 tmbpart,column,string,ตำบล,10
 amppart,column,string,อำเภอ,06
 chwpart,column,string,จังหวัด,64
-bloodgrp,column,string,หมู่เลือด เช่น A B AB O,""""""
-drugallergy,column,string,ประวัติการแพ้ยา,คลินิกจิตเวช
+bloodgrp,column,string,หมู่เลือด เช่น A B AB O,O
+drugallergy,column,string,ประวัติการแพ้ยา,Aspirin
 fathername,column,string,ชื่อบิดา,NULL
-hometel,column,string,โทรศัพท์บ้าน,เป็น G6PD complete deficiency
-nationality,column,string,สัญชาติ,NULL
-pttype,column,string,ประเภทสิทธิการรักษา เช่น บัตรทอง ประกันสังคม ข้าราชการ ,นายจันทร์แรม
-sex,column,string,เพศ,2011-07-06
-workaddr,column,string,ที่อยู่ที่ทำงาน,""""""
-worktel,column,string,โทรศัพท์ที่ทำงาน,47/6 หมู่ 2 ต.ทับผึ้ง อ.ศรีสำโรง จ.สุโขทัย
-hcode,column,string,รหัสสถานพยาบาล (5 หลัก),นางเบ็ญจา มีเทศ
-cid,column,string,เลขบัตรประชาชน 13 หลัก,มารดา
-hid,column,string,เลขที่บ้าน (House ID),""""""
+hometel,column,string,โทรศัพท์บ้าน,055-123456
+nationality,column,string,สัญชาติ,099
+pttype,column,string,ประเภทสิทธิการรักษา เช่น บัตรทอง ประกันสังคม ข้าราชการ,67
+sex,column,string,เพศ (1=ชาย 2=หญิง),1
+workaddr,column,string,ที่อยู่ที่ทำงาน,47/6 หมู่ 2 ต.ทับผึ้ง อ.ศรีสำโรง จ.สุโขทัย
+worktel,column,string,โทรศัพท์ที่ทำงาน,055-654321
+hcode,column,string,รหัสสถานพยาบาล (5 หลัก),10725
+cid,column,string,เลขบัตรประชาชน 13 หลัก,1640100002938
+hid,column,string,เลขที่บ้าน (House ID),12345
 educate,column,string,ระดับการศึกษา,1

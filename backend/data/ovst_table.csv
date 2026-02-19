@@ -4,8 +4,8 @@ hos_guid,column,string,รหัส GUID ของรายการ (รหั�
 vn,column,int,Visit Number เลขที่รับบริการผู้ป่วยนอก,132454987
 hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย,12345678
 an,column,int,Admission Number เลขที่ผู้ป่วยใน (ถ้ามี),NULL
-vstdate,column,date,วันที่รับบริการ,2019-04-09
-vsttime,column,time,เวลารับบริการ,09:45:13
+vstdate,column,date,วันที่รับบริการ(YYYY-MM-DD) วันที่ ใช้ในการหาข้อมูลผู้ป่วยนอก,2019-04-09
+vsttime,column,time,เวลารับบริการ(HH:mm:ss),09:45:13
 doctor,column,string,รหัสแพทย์ผู้ตรวจ,hdu003
 hospmain,column,string,รหัสหน่วยบริการหลักตามสิทธิ,10725
 hospsub,column,string,รหัสหน่วยบริการรองตามสิทธิ,07445
@@ -19,7 +19,7 @@ rfrilct,column,string,สถานที่/แผนกที่ส่งต่
 rfrocs,column,string,รหัสสถานพยาบาลที่ส่งต่อออก,NULL
 rfrolct,column,string,สถานที่/แผนกที่ส่งต่อออก,NULL
 spclty,column,string,รหัสสาขาความเชี่ยวชาญแพทย์,30
-rcpt_disease,column,string,โรคที่ระบุในใบเสร็จ,NULL
+rcpt_disease,column,string,โรคที่ระบุในใบเสร็จ,โรคช่องปากและฟัน
 hcode,column,string,รหัสสถานพยาบาล,10725
 cur_dep,column,string,แผนกปัจจุบันที่ผู้ป่วยอยู่,057
 cur_dep_busy,column,string,สถานะแผนกปัจจุบันกำลังให้บริการ,N
@@ -52,6 +52,4 @@ anonymous_visit,column,string,สถานะ visit ไม่ระบุตั�
 anonymous_vn,column,string,เลข VN สำหรับผู้ไม่ระบุตัวตน,NULL
 pt_capability_type_id,column,string,รหัสประเภทความสามารถสิทธิผู้ป่วย,NULL
 at_hospital,column,string,สถานะอยู่ในโรงพยาบาลหรือไม่,NULL
-ovst_key,column,string,คีย์หลักของตาราง visit,"
-
-"
+ovst_key,column,string,คีย์หลักของตาราง visit,""
