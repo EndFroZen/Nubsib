@@ -10,7 +10,7 @@ istatus,column,string,สถานะการใช้งาน (เช่น 1
 paidst,column,string,สถานะการคิดเงิน (เช่น คิดเงิน/ไม่คิดเงิน),N
 price_lock,column,string,ล็อกราคาไม่ให้แก้ไข,N
 icode_guid,column,string,รหัส GUID ของรายการยา,0
-ename,column,string,ชื่อยา (ภาษาอังกฤษ),"NULL"
+ename,column,string,ชื่อยา (ภาษาอังกฤษ),"  "
 cost,column,string,ต้นทุนยา,16711935
 income,column,string,หมวดรายได้ที่ผูกกับยา,N
 is_medication,column,string,เป็นยา (1=ใช่ 0=ไม่ใช่),NULL

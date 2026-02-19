@@ -1,11 +1,11 @@
-name,type,data_type,description
-ovstdiag,table,string,ตารางนี้เก็บข้อมูลการวินิจฉัยโรคของผู้ป่วยนอก (Outpatient Diagnosis) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits)
-vst_diag_id,column,string,รหัสรายการวินิจฉัยของการมารับบริการ (Primary Key ของตารางวินิจฉัย)
-vn,column,int,Visit Number เลขที่การมารับบริการในครั้งนั้น
-icd10,column,string,รหัสโรคตามมาตรฐาน ICD-10
-hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย
-vstdate,column,date,วันที่มารับบริการ
-vsttime,column,time,เวลาที่มารับบริการ
-diagtype,column,string,ประเภทการวินิจฉัย (เช่น 1=Primary diagnosis
-hcode,column,string,รหัสหน่วยบริการ หรือรหัสสถานพยาบาล
-doctor,column,string,แพทย์วินิจฉัย
+name,type,data_type,description,example
+ovstdiag,table,string,ตารางนี้เก็บข้อมูลการวินิจฉัยโรคของผู้ป่วยนอก (Outpatient Diagnosis) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits),129867
+vst_diag_id,column,string,รหัสรายการวินิจฉัยของการมารับบริการ (Primary Key ของตารางวินิจฉัย),490601063301
+vn,column,int,Visit Number เลขที่การมารับบริการในครั้งนั้น,Z53
+icd10,column,string,รหัสโรคตามมาตรฐาน ICD-10,0217297
+hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย,2006-06-01
+vstdate,column,date,วันที่มารับบริการ,06:33:01
+vsttime,column,time,เวลาที่มารับบริการ,1 
+diagtype,column,string,ประเภทการวินิจฉัย (เช่น 1=Primary diagnosis,Z53
+hcode,column,string,รหัสหน่วยบริการ หรือรหัสสถานพยาบาล,NULL
+doctor,column,string,แพทย์วินิจฉัย,NULL

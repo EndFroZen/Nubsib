@@ -1,67 +1,67 @@
-name,type,data_type,description
-opdscreen,table,string,ตารางนี้เก็บข้อมูลการคัดกรองผู้ป่วยนอก (Outpatient Screening) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits)
-hos_guid,column,string,รหัส GUID ของรายการ
-vn,column,int,Visit Number เลขที่รับบริการ
-hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย
-vstdate,column,date,วันที่รับบริการ
-vsttime,column,time,เวลารับบริการ
-begintime,column,time,เวลาเริ่มตรวจ
-outtime,column,time,เวลาออกจากห้องตรวจ
-endtime,column,time,เวลาสิ้นสุดการรักษา
-bpd,column,int,ความดันตัวล่าง (Diastolic)
-bps,column,int,ความดันตัวบน (Systolic)
-bw,column,float,น้ำหนัก (กก.)
-cc,column,string,Chief Complaint อาการสำคัญ
-hr,column,int,อัตราการเต้นหัวใจ
-pe,column,string,ผลตรวจร่างกาย
-pulse,column,int,ชีพจร
-temperature,column,float,อุณหภูมิร่างกาย
-note,column,string,บันทึกเพิ่มเติม
-rr,column,int,อัตราการหายใจ
-cc_begin_date,column,date,วันที่เริ่มมีอาการสำคัญ
-cc_cause_of_visit,column,string,สาเหตุที่มารับบริการ
-cc_sign,column,string,ลักษณะอาการ
-cc_duration,column,string,ระยะเวลาที่เป็น
-cc_position,column,string,ตำแหน่งที่มีอาการ
-cc_note,column,string,หมายเหตุอาการสำคัญ
-his_begin_date,column,date,วันที่เริ่มประวัติการเจ็บป่วยครั้งนี้
-his_frequency,column,string,ความถี่ของอาการ
-his_severity,column,string,ความรุนแรงของอาการ
-his_cause,column,string,สาเหตุที่คาดว่าเกี่ยวข้อง
-his_expand,column,string,อาการลุกลาม
-his_cause_increase,column,string,ปัจจัยกระตุ้นให้อาการมากขึ้น
-his_cause_decrease,column,string,ปัจจัยที่ทำให้อาการดีขึ้น
-his_related_sign,column,string,อาการร่วม
-height,column,float,ส่วนสูง (ซม.)
-screen_dep,column,string,แผนกคัดกรอง
-waiting,column,string,สถานะรอคอย
-fbs,column,float,น้ำตาลในเลือด (FBS)
-bmi,column,float,ดัชนีมวลกาย
-tg,column,float,Triglyceride
-hdl,column,float,HDL Cholesterol
-ldl,column,float,LDL Cholesterol
-cholesterol,column,float,Cholesterol รวม
-bun,column,float,BUN
-creatinine,column,float,Creatinine
-hba1c,column,float,HbA1c
-egfr,column,float,eGFR
-spo2,column,int,ค่าออกซิเจนปลายนิ้ว
-waist,column,float,รอบเอว
-pain_score,column,int,ระดับความปวด
-pre_pain_score,column,int,ระดับความปวดก่อนรักษา
-post_pain_score,column,int,ระดับความปวดหลังรักษา
-smoking_type_id,column,string,ประเภทการสูบบุหรี่
-drinking_type_id,column,string,ประเภทการดื่มแอลกอฮอล์
-pregnancy,column,string,สถานะการตั้งครรภ์
-lmp_date,column,date,วันที่ประจำเดือนครั้งสุดท้าย
-update_datetime,column,datetime,วันที่และเวลาแก้ไขข้อมูลล่าสุด
-inr,column,float,ค่า INR
-hb,column,float,Hemoglobin
-sodium,column,float,Sodium
-potassium,column,float,Potassium
-chloride,column,float,Chloride
-tco2,column,float,TCO2
-ast,column,float,AST
-alt,column,float,ALT
-g6pd,column,string,ผลตรวจ G6PD
-bsa,column,float,พื้นที่ผิวร่างกาย (Body Surface Area)
+name,type,data_type,description,example
+opdscreen,table,string,ตารางนี้เก็บข้อมูลการคัดกรองผู้ป่วยนอก (Outpatient Screening) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits),NULL
+hos_guid,column,string,รหัส GUID ของรายการ,NULL
+vn,column,int,Visit Number เลขที่รับบริการ,123465789
+hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย,12345678
+vstdate,column,date,วันที่รับบริการ,2015-07-30
+vsttime,column,time,เวลารับบริการ,08:37:58
+begintime,column,time,เวลาเริ่มตรวจ,NULL
+outtime,column,time,เวลาออกจากห้องตรวจ,NULL
+endtime,column,time,เวลาสิ้นสุดการรักษา,NULL
+bpd,column,int,ความดันตัวล่าง (Diastolic),78.000
+bps,column,int,ความดันตัวบน (Systolic),128.000
+bw,column,float,น้ำหนัก (กก.),0.000
+cc,column,string,Chief Complaint อาการสำคัญ,"""CA colon มาให้ยาเคมีหลังการผ่าตัด ECOG=0 PPS=100"""
+hr,column,int,อัตราการเต้นหัวใจ,NULL
+pe,column,string,ผลตรวจร่างกาย,""""""
+pulse,column,int,ชีพจร,70.000
+temperature,column,float,อุณหภูมิร่างกาย,37.000
+note,column,string,บันทึกเพิ่มเติม,""""""
+rr,column,int,อัตราการหายใจ,20.000
+cc_begin_date,column,date,วันที่เริ่มมีอาการสำคัญ,NULL
+cc_cause_of_visit,column,string,สาเหตุที่มารับบริการ,NULL
+cc_sign,column,string,ลักษณะอาการ,NULL
+cc_duration,column,string,ระยะเวลาที่เป็น,0:วัน
+cc_position,column,string,ตำแหน่งที่มีอาการ,NULL
+cc_note,column,string,หมายเหตุอาการสำคัญ,""""""
+his_begin_date,column,date,วันที่เริ่มประวัติการเจ็บป่วยครั้งนี้,NULL
+his_frequency,column,string,ความถี่ของอาการ,NULL
+his_severity,column,string,ความรุนแรงของอาการ,NULL
+his_cause,column,string,สาเหตุที่คาดว่าเกี่ยวข้อง,NULL
+his_expand,column,string,อาการลุกลาม,NULL
+his_cause_increase,column,string,ปัจจัยกระตุ้นให้อาการมากขึ้น,NULL
+his_cause_decrease,column,string,ปัจจัยที่ทำให้อาการดีขึ้น,NULL
+his_related_sign,column,string,อาการร่วม,NULL
+height,column,float,ส่วนสูง (ซม.),160 080
+screen_dep,column,string,แผนกคัดกรอง,N
+waiting,column,string,สถานะรอคอย,0.000
+fbs,column,float,น้ำตาลในเลือด (FBS),N
+bmi,column,float,ดัชนีมวลกาย,N
+tg,column,float,Triglyceride,N
+hdl,column,float,HDL Cholesterol,N
+ldl,column,float,LDL Cholesterol,NULL
+cholesterol,column,float,Cholesterol รวม,NULL
+bun,column,float,BUN,NULL
+creatinine,column,float,Creatinine,NULL
+hba1c,column,float,HbA1c,NULL
+egfr,column,float,eGFR,NULL
+spo2,column,int,ค่าออกซิเจนปลายนิ้ว,NULL
+waist,column,float,รอบเอว,NULL
+pain_score,column,int,ระดับความปวด,""""""
+pre_pain_score,column,int,ระดับความปวดก่อนรักษา,N
+post_pain_score,column,int,ระดับความปวดหลังรักษา,N
+smoking_type_id,column,string,ประเภทการสูบบุหรี่,N
+drinking_type_id,column,string,ประเภทการดื่มแอลกอฮอล์,N
+pregnancy,column,string,สถานะการตั้งครรภ์,N
+lmp_date,column,date,วันที่ประจำเดือนครั้งสุดท้าย,N
+update_datetime,column,datetime,วันที่และเวลาแก้ไขข้อมูลล่าสุด,N
+inr,column,float,ค่า INR,N
+hb,column,float,Hemoglobin,NULL
+sodium,column,float,Sodium,NULL
+potassium,column,float,Potassium,NULL
+chloride,column,float,Chloride,NULL
+tco2,column,float,TCO2,NULL
+ast,column,float,AST,NULL
+alt,column,float,ALT,NULL
+g6pd,column,string,ผลตรวจ G6PD,NULL
+bsa,column,float,พื้นที่ผิวร่างกาย (Body Surface Area),NULL

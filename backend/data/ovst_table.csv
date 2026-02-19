@@ -1,55 +1,57 @@
-name,type,data_type,description
-ovst,table,string,ตารางนี้เก็บข้อมูลการมารับบริการผู้ป่วยนอกหลัก (Outpatient Visit) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits)
-hos_guid,column,string,รหัส GUID ของรายการ (รหัสเฉพาะของ visit)
-vn,column,int,Visit Number เลขที่รับบริการผู้ป่วยนอก
-hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย
-an,column,int,Admission Number เลขที่ผู้ป่วยใน (ถ้ามี)
-vstdate,column,date,วันที่รับบริการ
-vsttime,column,time,เวลารับบริการ
-doctor,column,string,รหัสแพทย์ผู้ตรวจ
-hospmain,column,string,รหัสหน่วยบริการหลักตามสิทธิ
-hospsub,column,string,รหัสหน่วยบริการรองตามสิทธิ
-oqueue,column,int,ลำดับคิวผู้ป่วยนอก
-ovstist,column,string,สถานะ visit (ภายในระบบ)
-ovstost,column,string,สถานะการจำหน่าย/ออกจากระบบ
-pttype,column,string,ประเภทสิทธิการรักษา
-pttypeno,column,string,เลขที่สิทธิการรักษา
-rfrics,column,string,รหัสสถานพยาบาลที่ส่งต่อเข้า
-rfrilct,column,string,สถานที่/แผนกที่ส่งต่อเข้า
-rfrocs,column,string,รหัสสถานพยาบาลที่ส่งต่อออก
-rfrolct,column,string,สถานที่/แผนกที่ส่งต่อออก
-spclty,column,string,รหัสสาขาความเชี่ยวชาญแพทย์
-rcpt_disease,column,string,โรคที่ระบุในใบเสร็จ
-hcode,column,string,รหัสสถานพยาบาล
-cur_dep,column,string,แผนกปัจจุบันที่ผู้ป่วยอยู่
-cur_dep_busy,column,string,สถานะแผนกปัจจุบันกำลังให้บริการ
-last_dep,column,string,แผนกก่อนหน้าที่ผู้ป่วยไป
-cur_dep_time,column,time,เวลาที่เข้ารับบริการแผนกปัจจุบัน
-rx_queue,column,int,ลำดับคิวรับยา
-diag_text,column,string,ข้อความสรุปการวินิจฉัย
-pt_subtype,column,string,ประเภทย่อยของผู้ป่วย
-main_dep,column,string,แผนกหลักที่รับบริการ
-main_dep_queue,column,int,ลำดับคิวของแผนกหลัก
-finance_summary_date,column,date,วันที่สรุปการเงิน
-visit_type,column,string,ประเภทการมารับบริการ
-node_id,column,string,รหัสเครื่อง/จุดบริการที่บันทึกข้อมูล
-contract_id,column,string,รหัสสัญญาที่ใช้สิทธิ
-waiting,column,string,สถานะการรอคอย
-rfri_icd10,column,string,รหัส ICD10 จากการส่งต่อเข้า
-o_refer_number,column,string,เลขที่ใบส่งต่อออก
-has_insurance,column,string,มีประกันเพิ่มเติมหรือไม่
-i_refer_number,column,string,เลขที่ใบส่งต่อเข้า
-refer_type,column,string,ประเภทการส่งต่อ
-o_refer_dep,column,string,แผนกที่ส่งต่อออก
-staff,column,string,เจ้าหน้าที่ผู้บันทึกข้อมูล
-command_doctor,column,string,แพทย์ผู้สั่งการรักษา
-send_person,column,string,ผู้ส่งต่อ
-pt_priority,column,string,ระดับความเร่งด่วนผู้ป่วย
-finance_lock,column,string,สถานะล็อคการเงิน
-oldcode,column,string,รหัสเดิม (ถ้ามีการแปลงระบบ)
-sign_doctor,column,string,แพทย์ผู้ลงนาม
-anonymous_visit,column,string,สถานะ visit ไม่ระบุตัวตน
-anonymous_vn,column,string,เลข VN สำหรับผู้ไม่ระบุตัวตน
-pt_capability_type_id,column,string,รหัสประเภทความสามารถสิทธิผู้ป่วย
-at_hospital,column,string,สถานะอยู่ในโรงพยาบาลหรือไม่
-ovst_key,column,string,คีย์หลักของตาราง visit
+name,type,data_type,description,example
+ovst,table,string,ตารางนี้เก็บข้อมูลการมารับบริการผู้ป่วยนอกหลัก (Outpatient Visit) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits),NULL
+hos_guid,column,string,รหัส GUID ของรายการ (รหัสเฉพาะของ visit),{00000468-43A7-441F-9DFB-CAF2D448A184}
+vn,column,int,Visit Number เลขที่รับบริการผู้ป่วยนอก,132454987
+hn,column,int,Hospital Number เลขประจำตัวผู้ป่วย,12345678
+an,column,int,Admission Number เลขที่ผู้ป่วยใน (ถ้ามี),NULL
+vstdate,column,date,วันที่รับบริการ,2019-04-09
+vsttime,column,time,เวลารับบริการ,09:45:13
+doctor,column,string,รหัสแพทย์ผู้ตรวจ,hdu003
+hospmain,column,string,รหัสหน่วยบริการหลักตามสิทธิ,10725
+hospsub,column,string,รหัสหน่วยบริการรองตามสิทธิ,07445
+oqueue,column,int,ลำดับคิวผู้ป่วยนอก,1154
+ovstist,column,string,สถานะ visit (ภายในระบบ),01
+ovstost,column,string,สถานะการจำหน่าย/ออกจากระบบ,00
+pttype,column,string,ประเภทสิทธิการรักษา,67
+pttypeno,column,string,เลขที่สิทธิการรักษา,057
+rfrics,column,string,รหัสสถานพยาบาลที่ส่งต่อเข้า,NULL
+rfrilct,column,string,สถานที่/แผนกที่ส่งต่อเข้า,NULL
+rfrocs,column,string,รหัสสถานพยาบาลที่ส่งต่อออก,NULL
+rfrolct,column,string,สถานที่/แผนกที่ส่งต่อออก,NULL
+spclty,column,string,รหัสสาขาความเชี่ยวชาญแพทย์,30
+rcpt_disease,column,string,โรคที่ระบุในใบเสร็จ,NULL
+hcode,column,string,รหัสสถานพยาบาล,10725
+cur_dep,column,string,แผนกปัจจุบันที่ผู้ป่วยอยู่,057
+cur_dep_busy,column,string,สถานะแผนกปัจจุบันกำลังให้บริการ,N
+last_dep,column,string,แผนกก่อนหน้าที่ผู้ป่วยไป,057
+cur_dep_time,column,time,เวลาที่เข้ารับบริการแผนกปัจจุบัน,09:47:27
+rx_queue,column,int,ลำดับคิวรับยา,NULL
+diag_text,column,string,ข้อความสรุปการวินิจฉัย,NULL
+pt_subtype,column,string,ประเภทย่อยของผู้ป่วย,0
+main_dep,column,string,แผนกหลักที่รับบริการ,057
+main_dep_queue,column,int,ลำดับคิวของแผนกหลัก,25
+finance_summary_date,column,date,วันที่สรุปการเงิน,NULL
+visit_type,column,string,ประเภทการมารับบริการ,O
+node_id,column,string,รหัสเครื่อง/จุดบริการที่บันทึกข้อมูล," "
+contract_id,column,string,รหัสสัญญาที่ใช้สิทธิ,NULL
+waiting,column,string,สถานะการรอคอย,Y
+rfri_icd10,column,string,รหัส ICD10 จากการส่งต่อเข้า,NULL
+o_refer_number,column,string,เลขที่ใบส่งต่อออก,NULL
+has_insurance,column,string,มีประกันเพิ่มเติมหรือไม่,N
+i_refer_number,column,string,เลขที่ใบส่งต่อเข้า,NULL
+refer_type,column,string,ประเภทการส่งต่อ,NULL
+o_refer_dep,column,string,แผนกที่ส่งต่อออก,NULL
+staff,column,string,เจ้าหน้าที่ผู้บันทึกข้อมูล,hdu003
+command_doctor,column,string,แพทย์ผู้สั่งการรักษา,121
+send_person,column,string,ผู้ส่งต่อ,NULL
+pt_priority,column,string,ระดับความเร่งด่วนผู้ป่วย,0
+finance_lock,column,string,สถานะล็อคการเงิน,NULL
+oldcode,column,string,รหัสเดิม (ถ้ามีการแปลงระบบ),NULL
+sign_doctor,column,string,แพทย์ผู้ลงนาม,NULL
+anonymous_visit,column,string,สถานะ visit ไม่ระบุตัวตน,NULL
+anonymous_vn,column,string,เลข VN สำหรับผู้ไม่ระบุตัวตน,NULL
+pt_capability_type_id,column,string,รหัสประเภทความสามารถสิทธิผู้ป่วย,NULL
+at_hospital,column,string,สถานะอยู่ในโรงพยาบาลหรือไม่,NULL
+ovst_key,column,string,คีย์หลักของตาราง visit,"
+
+"

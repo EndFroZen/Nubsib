@@ -1,78 +1,82 @@
-name,type,data_type,description
-pttype,table,string,ตารางนี้เก็บข้อมูลประเภทสิทธิการรักษา (Patient Type) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ
-pttype,column,string,รหัสประเภทสิทธิการรักษา
-name,column,string,ชื่อประเภทสิทธิ
-editmask,column,string,รูปแบบการแสดงผล/รูปแบบการแก้ไขข้อมูล
-isuse,column,string,สถานะการใช้งาน
-pcode,column,string,รหัสสิทธิ (Policy Code)
-requirecode,column,string,ต้องระบุรหัสอ้างอิงเพิ่มเติมหรือไม่
-doctor_fee,column,string,คิดค่าแพทย์หรือไม่
-fee_code,column,string,รหัสค่าบริการหลัก
-discount,column,string,ส่วนลดเริ่มต้นของสิทธินี้
-contract,column,string,เลขที่สัญญา
-paidst,column,string,สถานะการคิดเงิน (คิด/ไม่คิด)
-in_region,column,string,ใช้ในเขตพื้นที่หรือไม่
-uc,column,string,เป็นสิทธิ UC หรือไม่
-require_hcode,column,string,ต้องระบุรหัสสถานพยาบาลคู่สัญญา
-oldcode,column,string,รหัสเดิม
-fee_code2,column,string,รหัสค่าบริการรอง
-price_type,column,string,ประเภทการคิดราคา
-debtor,column,string,รหัสลูกหนี้
-noexpire,column,string,ไม่มีวันหมดอายุ
-hipdata_code,column,string,รหัสเชื่อมโยง HIPDATA
-min_age,column,string,อายุขั้นต่ำที่ใช้สิทธิได้
-max_age,column,string,อายุสูงสุดที่ใช้สิทธิได้
-bill_sss,column,string,ใช้รูปแบบบิลประกันสังคมหรือไม่
-bill_type,column,string,ประเภทใบเรียกเก็บ
-hipdata_pttype,column,string,รหัสสิทธิในระบบ HIPDATA
-use_contract_id,column,string,ใช้รหัสสัญญาเชื่อมโยง
-yearly_charge,column,string,มีการเก็บค่าธรรมเนียมรายปี
-yearly_charge_icode1,column,string,รหัสรายการเรียกเก็บรายปี 1
-yearly_charge_icode2,column,string,รหัสรายการเรียกเก็บรายปี 2
-region_type,column,string,ประเภทเขตพื้นที่
-pttype_group1,column,string,กลุ่มสิทธิหลัก
-pttype_group2,column,string,กลุ่มสิทธิย่อย
-pttype_guid,column,string,GUID ประเภทสิทธิ
-max_debt_money,column,string,วงเงินหนี้สูงสุด
-allow_finance_edit,column,string,อนุญาตให้การเงินแก้ไข
-print_csmb_statement,column,string,พิมพ์ใบแจ้ง CSMBS
-pttype_information,column,string,ข้อมูลเพิ่มเติมเกี่ยวกับสิทธิ
-fee_code_paidst,column,string,สถานะคิดเงินของ fee_code
-fee_code2_paidst,column,string,สถานะคิดเงินของ fee_code2
-debt_due_day,column,string,จำนวนวันที่ครบกำหนดชำระหนี้
-rx_pay_debit_tr,column,string,ตัดจ่ายค่ายาจากบัญชีลูกหนี้
-separate_rcpno,column,string,แยกเลขใบเสร็จ
-rcp_bookno,column,string,เล่มใบเสร็จ
-separate_debt_id,column,string,แยกเลขหนี้
-admit_fee_code,column,string,รหัสค่าบริการกรณี Admit
-use_package,column,string,ใช้แพ็กเกจการรักษา
-charge_df_perday,column,string,คิดค่า DF รายวัน
-nhso_code,column,string,รหัสสิทธิในระบบ สปสช.
-ipd_hour_cut,column,string,ตัดรอบชั่วโมงผู้ป่วยใน
-pttype_spp_id,column,string,รหัสเชื่อม SPP
-print_presc_ned,column,string,พิมพ์ใบสั่งยากลุ่ม NED
-hos_guid,column,string,GUID สถานพยาบาล
-sks_benefit_plan_type_id,column,string,รหัสแผนสิทธิ สกส.
-pttype_std_code,column,string,รหัสมาตรฐานสิทธิ
-export_eclaim,column,string,ส่งออกข้อมูล e-Claim
-round_money,column,string,ปัดเศษยอดเงิน
-pttype_price_policy_type_id,column,string,นโยบายการคิดราคาของสิทธิ
-emp_privilege,column,string,สิทธิพนักงาน
-is_pttype_plan,column,string,เป็นแผนสิทธิหรือไม่
-finance_round_money,column,string,ปัดเศษทางการเงิน
-emp_financial,column,string,สิทธิด้านการเงินพนักงาน
-pttype_price_group_id,column,string,กลุ่มราคาสิทธิ
-calc_discount,column,string,คำนวณส่วนลดอัตโนมัติ
-debt_finance_limit,column,string,วงเงินหนี้ทางการเงิน
-debt_finance_pttype,column,string,ประเภทสิทธิที่ใช้คุมหนี้
-opbkk_type_code,column,string,รหัส OPBKK
-ipd_bedcharge_24,column,string,คิดค่าเตียง 24 ชั่วโมง
-nhso_subinscl,column,string,รหัสสิทธิย่อย สปสช.
-grouper_version,column,string,เวอร์ชัน DRG Grouper
-rx_queue_group_id,column,string,กลุ่มคิวรับยา
-inc_round_money,column,string,ปัดเศษหมวดรายได้
-hospmain_list,column,string,รายชื่อโรงพยาบาลแม่ข่าย
-grouper_release,column,string,รุ่นการประมวลผล DRG
-check_nhso_auth,column,string,ตรวจสอบสิทธิ สปสช.
-pttype_upp_type_id,column,string,รหัสประเภท UPP
-default_request_funds,column,string,ค่าเริ่มต้นการขอเบิกกองทุน
+name,type,data_type,description,example
+pttype,table,string,ตารางนี้เก็บข้อมูลประเภทสิทธิการรักษา (Patient Type) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ,NULL
+pttype,column,string,รหัสประเภทสิทธิการรักษา,71
+name,column,string,ชื่อประเภทสิทธิ,(ยกเลิก)เด็ก 0 -  12 ปี ในเขต
+editmask,column,string,รูปแบบการแสดงผล/รูปแบบการแก้ไขข้อมูล,UC ในเขต
+isuse,column,string,สถานะการใช้งาน,N
+pcode,column,string,รหัสสิทธิ (Policy Code),AA
+requirecode,column,string,ต้องระบุรหัสอ้างอิงเพิ่มเติมหรือไม่,Y
+doctor_fee,column,string,คิดค่าแพทย์หรือไม่,Y
+fee_code,column,string,รหัสค่าบริการหลัก,3000976
+discount,column,string,ส่วนลดเริ่มต้นของสิทธินี้,NULL
+contract,column,string,เลขที่สัญญา,NULL
+paidst,column,string,สถานะการคิดเงิน (คิด/ไม่คิด),02
+in_region,column,string,ใช้ในเขตพื้นที่หรือไม่,NULL
+uc,column,string,เป็นสิทธิ UC หรือไม่,1
+require_hcode,column,string,ต้องระบุรหัสสถานพยาบาลคู่สัญญา,Y
+oldcode,column,string,รหัสเดิม,NULL
+fee_code2,column,string,รหัสค่าบริการรอง,NULL
+price_type,column,string,ประเภทการคิดราคา,0
+debtor,column,string,รหัสลูกหนี้,Y
+noexpire,column,string,ไม่มีวันหมดอายุ,Y
+hipdata_code,column,string,รหัสเชื่อมโยง HIPDATA,UCS
+min_age,column,string,อายุขั้นต่ำที่ใช้สิทธิได้,NULL
+max_age,column,string,อายุสูงสุดที่ใช้สิทธิได้,NULL
+bill_sss,column,string,ใช้รูปแบบบิลประกันสังคมหรือไม่,NULL
+bill_type,column,string,ประเภทใบเรียกเก็บ,NULL
+hipdata_pttype,column,string,รหัสสิทธิในระบบ HIPDATA,71 
+use_contract_id,column,string,ใช้รหัสสัญญาเชื่อมโยง,NULL
+yearly_charge,column,string,มีการเก็บค่าธรรมเนียมรายปี,NULL
+yearly_charge_icode1,column,string,รหัสรายการเรียกเก็บรายปี 1,NULL
+yearly_charge_icode2,column,string,รหัสรายการเรียกเก็บรายปี 2,NULL
+region_type,column,string,ประเภทเขตพื้นที่,4
+pttype_group1,column,string,กลุ่มสิทธิหลัก,02 
+pttype_group2,column,string,กลุ่มสิทธิย่อย,NULL
+pttype_guid,column,string,GUID ประเภทสิทธิ,NULL
+max_debt_money,column,string,วงเงินหนี้สูงสุด,NULL
+allow_finance_edit,column,string,อนุญาตให้การเงินแก้ไข,NULL
+print_csmb_statement,column,string,พิมพ์ใบแจ้ง CSMBS,NULL
+pttype_information,column,string,ข้อมูลเพิ่มเติมเกี่ยวกับสิทธิ,NULL
+fee_code_paidst,column,string,สถานะคิดเงินของ fee_code,02
+fee_code2_paidst,column,string,สถานะคิดเงินของ fee_code2,NULL
+debt_due_day,column,string,จำนวนวันที่ครบกำหนดชำระหนี้,NULL
+rx_pay_debit_tr,column,string,ตัดจ่ายค่ายาจากบัญชีลูกหนี้,NULL
+separate_rcpno,column,string,แยกเลขใบเสร็จ,NULL
+rcp_bookno,column,string,เล่มใบเสร็จ,NULL
+separate_debt_id,column,string,แยกเลขหนี้,NULL
+admit_fee_code,column,string,รหัสค่าบริการกรณี Admit,NULL
+use_package,column,string,ใช้แพ็กเกจการรักษา,NULL
+charge_df_perday,column,string,คิดค่า DF รายวัน,Y
+nhso_code,column,string,รหัสสิทธิในระบบ สปสช.,71
+ipd_hour_cut,column,string,ตัดรอบชั่วโมงผู้ป่วยใน,6
+pttype_spp_id,column,string,รหัสเชื่อม SPP,NULL
+print_presc_ned,column,string,พิมพ์ใบสั่งยากลุ่ม NED,N
+hos_guid,column,string,GUID สถานพยาบาล,NULL
+sks_benefit_plan_type_id,column,string,รหัสแผนสิทธิ สกส.,NULL
+pttype_std_code,column,string,รหัสมาตรฐานสิทธิ,NULL
+export_eclaim,column,string,ส่งออกข้อมูล e-Claim,Y
+round_money,column,string,ปัดเศษยอดเงิน,N
+pttype_price_policy_type_id,column,string,นโยบายการคิดราคาของสิทธิ,2
+emp_privilege,column,string,สิทธิพนักงาน,NULL
+is_pttype_plan,column,string,เป็นแผนสิทธิหรือไม่,NULL
+finance_round_money,column,string,ปัดเศษทางการเงิน,NULL
+emp_financial,column,string,สิทธิด้านการเงินพนักงาน,NULL
+pttype_price_group_id,column,string,กลุ่มราคาสิทธิ,2
+calc_discount,column,string,คำนวณส่วนลดอัตโนมัติ,NULL
+debt_finance_limit,column,string,วงเงินหนี้ทางการเงิน,NULL
+debt_finance_pttype,column,string,ประเภทสิทธิที่ใช้คุมหนี้,NULL
+opbkk_type_code,column,string,รหัส OPBKK,NULL
+ipd_bedcharge_24,column,string,คิดค่าเตียง 24 ชั่วโมง,NULL
+nhso_subinscl,column,string,รหัสสิทธิย่อย สปสช.,NULL
+grouper_version,column,string,เวอร์ชัน DRG Grouper,5
+rx_queue_group_id,column,string,กลุ่มคิวรับยา,NULL
+inc_round_money,column,string,ปัดเศษหมวดรายได้,NULL
+hospmain_list,column,string,รายชื่อโรงพยาบาลแม่ข่าย,NULL
+grouper_release,column,string,รุ่นการประมวลผล DRG,5103
+check_nhso_auth,column,string,ตรวจสอบสิทธิ สปสช.,NULL
+pttype_upp_type_id,column,string,รหัสประเภท UPP,NULL
+default_request_funds,column,string,ค่าเริ่มต้นการขอเบิกกองทุน,"
+
+
+
+"

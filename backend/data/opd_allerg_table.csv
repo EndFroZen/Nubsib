@@ -1,47 +1,46 @@
-name,type,data_type,description
-opd_allerg,table,string,ตารางนี้เก็บข้อมูลอาการแพ้ยาของผู้ป่วย (Dynamic Data) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ
-hn,column,string,เลขประจำตัวผู้ป่วย (Hospital Number)
-report_date,column,string,วันที่รายงานอาการแพ้
-agent,column,string,ชื่อยาหรือสารที่แพ้
-symptom,column,string,อาการที่เกิดขึ้น
-reporter,column,string,ผู้รายงาน (ผู้ป่วย/ญาติ/บุคลากร)
-relation_level,column,string,ระดับความสัมพันธ์กับยา
-note,column,string,หมายเหตุเพิ่มเติม
-allergy_type,column,string,ประเภทการแพ้ (Drug/Food/Chemical)
-display_order,column,string,ลำดับการแสดงผล
-begin_date,column,string,วันที่เริ่มมีอาการ
-allergy_group_id,column,string,รหัสกลุ่มการแพ้
-seriousness_id,column,string,ระดับความรุนแรง
-allergy_result_id,column,string,ผลลัพธ์ของอาการแพ้
-allergy_relation_id,column,string,รหัสความสัมพันธ์สาเหตุ
-ward,column,string,หอผู้ป่วย
-department,column,string,แผนก
-spclty,column,string,สาขาเฉพาะทาง
-entry_datetime,column,string,วันที่/เวลาบันทึกข้อมูล
-update_datetime,column,string,วันที่/เวลาแก้ไขล่าสุด
-depcode,column,string,รหัสแผนก
-no_alert,column,string,ไม่แจ้งเตือน
-naranjo_result_id,column,string,ผลการประเมินตาม Naranjo Scale
-force_no_order,column,string,บังคับไม่ให้สั่งยา
-opd_allergy_alert_type_id,column,string,ประเภทการแจ้งเตือน OPD
-hos_guid,column,string,GUID สถานพยาบาล
-adr_preventable_score,column,string,คะแนนการป้องกัน ADR
-preventable,column,string,สามารถป้องกันได้หรือไม่
-patient_cid,column,string,เลขบัตรประชาชนผู้ป่วย
-adr_consult_dialog_id,column,string,รหัสการปรึกษา ADR
-opd_allergy_report_type_id,column,string,ประเภทการรายงานแพ้ยา OPD
-hos_guid_ext,column,string,GUID ภายนอก
-agent_code24,column,string,รหัสยา 24 หลัก
-officer_confirm,column,string,เจ้าหน้าที่ผู้ยืนยันข้อมูล
-icode,column,string,รหัสยาในระบบ
-opd_allergy_symtom_type_id,column,string,รหัสประเภทอาการแพ้
-opd_allergy_id,column,string,รหัสรายการแพ้ยา (Primary Key)
-cross_group_check,column,string,ตรวจสอบการแพ้ข้ามกลุ่มยา
-opd_allergy_source_id,column,string,แหล่งที่มาของข้อมูลแพ้ยา
-opd_allergy_type_id,column,string,ประเภทการแพ้ OPD
-doctor_code,column,string,รหัสแพทย์
-dosage_text,column,string,ขนาดยาที่ได้รับ
-usage_text,column,string,วิธีใช้ยา
-lab_text,column,string,ผลตรวจทางห้องปฏิบัติการที่เกี่ยวข้อง
-sct_disorder_id,column,string,รหัสโรค SNOMED CT
-sct_substance_id,column,string,รหัสสาร/ยา SNOMED CT
+name,type,data_type,description,example
+opd_allerg,table,string,ตารางนี้เก็บข้อมูลอาการแพ้ยาของผู้ป่วย (Dynamic Data) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ,NULL
+hn,column,string,เลขประจำตัวผู้ป่วย (Hospital Number),0289452
+report_date,column,string,วันที่รายงานอาการแพ้,2012-04-23
+agent,column,string,ชื่อยาหรือสารที่แพ้,PARACETAMOL
+symptom,column,string,อาการที่เกิดขึ้น,ผื่น
+reporter,column,string,ผู้รายงาน (ผู้ป่วย/ญาติ/บุคลากร),ph2008
+relation_level,column,string,ระดับความสัมพันธ์กับยา,NULL
+note,column,string,หมายเหตุเพิ่มเติม,ผู้ป่วยแจ้งประวัติ เคยทดลองใช้ซ้ำหลายบริษัท พบว่าเกิดอาการเหมือนกัน
+display_order,column,string,ลำดับการแสดงผล,NULL
+begin_date,column,string,วันที่เริ่มมีอาการ,NULL
+allergy_group_id,column,string,รหัสกลุ่มการแพ้,2012-04-23
+seriousness_id,column,string,ระดับความรุนแรง,2
+allergy_result_id,column,string,ผลลัพธ์ของอาการแพ้,1
+allergy_relation_id,column,string,รหัสความสัมพันธ์สาเหตุ,1
+ward,column,string,หอผู้ป่วย,NULL
+department,column,string,แผนก,06
+spclty,column,string,สาขาเฉพาะทาง,IPD
+entry_datetime,column,string,วันที่/เวลาบันทึกข้อมูล,04
+update_datetime,column,string,วันที่/เวลาแก้ไขล่าสุด,2012-04-23 10:36:15.000000
+depcode,column,string,รหัสแผนก,2020-10-21 14:32:15.262223
+no_alert,column,string,ไม่แจ้งเตือน,NULL
+naranjo_result_id,column,string,ผลการประเมินตาม Naranjo Scale,NULL
+force_no_order,column,string,บังคับไม่ให้สั่งยา,NULL
+opd_allergy_alert_type_id,column,string,ประเภทการแจ้งเตือน OPD,Y
+hos_guid,column,string,GUID สถานพยาบาล,1
+adr_preventable_score,column,string,คะแนนการป้องกัน ADR,NULL
+preventable,column,string,สามารถป้องกันได้หรือไม่,NULL
+patient_cid,column,string,เลขบัตรประชาชนผู้ป่วย,NULL
+adr_consult_dialog_id,column,string,รหัสการปรึกษา ADR,1640100002938
+opd_allergy_report_type_id,column,string,ประเภทการรายงานแพ้ยา OPD,NULL
+hos_guid_ext,column,string,GUID ภายนอก,1
+agent_code24,column,string,รหัสยา 24 หลัก,NULL
+officer_confirm,column,string,เจ้าหน้าที่ผู้ยืนยันข้อมูล,100752000001320930881144
+icode,column,string,รหัสยาในระบบ,NULL
+opd_allergy_symtom_type_id,column,string,รหัสประเภทอาการแพ้,NULL
+opd_allergy_id,column,string,รหัสรายการแพ้ยา (Primary Key),23
+cross_group_check,column,string,ตรวจสอบการแพ้ข้ามกลุ่มยา,14108
+opd_allergy_source_id,column,string,แหล่งที่มาของข้อมูลแพ้ยา,NULL
+opd_allergy_type_id,column,string,ประเภทการแพ้ OPD,NULL
+doctor_code,column,string,รหัสแพทย์,NULL
+dosage_text,column,string,ขนาดยาที่ได้รับ,NULL
+usage_text,column,string,วิธีใช้ยา,""""""
+lab_text,column,string,ผลตรวจทางห้องปฏิบัติการที่เกี่ยวข้อง,""""""
+sct_disorder_id,column,string,รหัสโรค SNOMED CT,""""""
+sct_substance_id,column,string,รหัสสาร/ยา SNOMED CT,NULL

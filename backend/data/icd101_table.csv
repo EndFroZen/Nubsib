@@ -1,4 +1,7 @@
-name,type,data_type,description
-icd101,table,string,ตารางนี้เก็บข้อมูลรหัสโรค icd10
-code,column,string,รหัส icd10
-name,column,string,ชื่อ icd10
+name,type,data_type,description,example
+icd101,table,string,ตารางนี้เก็บข้อมูลรหัสโรคและชื่อโรคเพื่อเอาไว้เปรียบเทียบหรือค้นหาตารางนี้ใช้สำหรับค้นหาข้อมูลโรค หรือบบอกชื่อ,NULL
+code,column,string,รหัสโรค icd101,S42218
+name,column,string,ชื่อโรคภาษาอังกฤษ icd101,Open Fracture of proximal humerus others (TM)
+tname,column,string,ชื่อโรคภาษาไทย icd101,กระดูกต้นแขนปลายบนหักแบบเปิด ไม่ระบุรายละเอียด
+
+

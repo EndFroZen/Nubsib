@@ -13,12 +13,13 @@ func Chat(c *fiber.Ctx) error {
 		service.FLog("Error parsing request: ", err)
 		return err
 	}
-	
-	result, err := service.AiGennarate(req.Prompt)
+	service.FLog("Request: ", req.Prompt)
+	result, err := service.AiGenerate(req.Prompt)
 	if err != nil {
 		service.FLog("Error generating content: ", err)
 		return err
 	}
+	service.FLog("Result: ", result)
 	return c.JSON(fiber.Map{
 		"status":  "ok",
 		"message": "Chat endpoint is working!",

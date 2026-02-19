@@ -1,4 +1,6 @@
-name,type,data_type,description
-icd9cm1,table,string,ตารางนี้เก็บข้อมูลรหัสหัตถการ icd9cm
-code,column,string,รหัสหัตถการ / รหัสบริการ
-name,column,string,ชื่อหัตถการ / ชื่อบริการ
+name,type,data_type,description,example
+icd9cm1,table,string,ตารางนี้เก็บข้อมูลรหัสหัตถการและชื่อหัตถการเพื่อเอาไว้เปรียบเทียบหรือค้นหา ตารางนี้ใช้สำหรับค้นหาข้อมูลหัตถการ หรือบอกชื่อหัตถการ,NULL
+code,column,string,รหัสหัตถการ / รหัสบริการ,0001
+name,column,string,ชื่อหัตถการ / ชื่อบริการ,Ther ult head & neck ves
+
+

@@ -1,27 +1,27 @@
-name,type,data_type,description
-patient,table,ตารางนี้เก็บข้อมูลทะเบียนประวัติหลักของผู้ป่วย (Static Data) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ,
-hn,column,int,เลขประจำตัวผู้ป่วย (Hospital Number)
-pname,column,string,คำนำหน้าชื่อ เช่น นาย นาง น.ส.
-fname,column,string,ชื่อ
-lname,column,string,นามสกุล
-occupation,column,string,อาชีพ
-citizenship,column,string,สัญชาติทางกฎหมาย/สัญชาติที่ถืออยู่
-birthday,column,date,วันเดือนปีเกิด
-addrpart,column,string,บ้านเลขที่
-moopart,column,string,หมู่ที่
-tmbpart,column,string,ตำบล
-amppart,column,string,อำเภอ
-chwpart,column,string,จังหวัด
-bloodgrp,column,string,หมู่เลือด เช่น A B AB O
-drugallergy,column,string,ประวัติการแพ้ยา
-fathername,column,string,ชื่อบิดา
-hometel,column,string,โทรศัพท์บ้าน
-nationality,column,string,สัญชาติ
-pttype,column,string,ประเภทสิทธิการรักษา เช่น บัตรทอง ประกันสังคม ข้าราชการ 
-sex,column,string,เพศ
-workaddr,column,string,ที่อยู่ที่ทำงาน
-worktel,column,string,โทรศัพท์ที่ทำงาน
-hcode,column,string,รหัสสถานพยาบาล (5 หลัก)
-cid,column,string,เลขบัตรประชาชน 13 หลัก
-hid,column,string,เลขที่บ้าน (House ID)
-educate,column,string,ระดับการศึกษา
+name,type,data_type,description,example
+patient,table,string,ตารางนี้เก็บข้อมูลทะเบียนประวัติหลักของผู้ป่วย (Static Data) ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ hn (Hospital Number) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ,NULL
+hn,column,int,เลขประจำตัวผู้ป่วย (Hospital Number),12345678
+pname,column,string,คำนำหน้าชื่อ เช่น นาย นาง น.ส.,ด.ช.
+fname,column,string,ชื่อ,เอไอ
+lname,column,string,นามสกุล,ทอสอบ
+occupation,column,string,อาชีพ,015
+citizenship,column,string,สัญชาติทางกฎหมาย/สัญชาติที่ถืออยู่,99 
+birthday,column,date,วันเดือนปีเกิด,2011-07-06
+addrpart,column,string,บ้านเลขที่,47/6
+moopart,column,string,หมู่ที่,2  
+tmbpart,column,string,ตำบล,10
+amppart,column,string,อำเภอ,06
+chwpart,column,string,จังหวัด,64
+bloodgrp,column,string,หมู่เลือด เช่น A B AB O,""""""
+drugallergy,column,string,ประวัติการแพ้ยา,คลินิกจิตเวช
+fathername,column,string,ชื่อบิดา,NULL
+hometel,column,string,โทรศัพท์บ้าน,เป็น G6PD complete deficiency
+nationality,column,string,สัญชาติ,NULL
+pttype,column,string,ประเภทสิทธิการรักษา เช่น บัตรทอง ประกันสังคม ข้าราชการ ,นายจันทร์แรม
+sex,column,string,เพศ,2011-07-06
+workaddr,column,string,ที่อยู่ที่ทำงาน,""""""
+worktel,column,string,โทรศัพท์ที่ทำงาน,47/6 หมู่ 2 ต.ทับผึ้ง อ.ศรีสำโรง จ.สุโขทัย
+hcode,column,string,รหัสสถานพยาบาล (5 หลัก),นางเบ็ญจา มีเทศ
+cid,column,string,เลขบัตรประชาชน 13 หลัก,มารดา
+hid,column,string,เลขที่บ้าน (House ID),""""""
+educate,column,string,ระดับการศึกษา,1

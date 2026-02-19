@@ -1,6 +1,7 @@
 package main
 
 import (
+	"api-nubsib/config"
 	"api-nubsib/routes"
 	"api-nubsib/service"
 	"os"
@@ -25,6 +26,7 @@ func main() {
 	// Start RAG generation (data ingestion) in background
 	go service.RagGen()
 
+	config.Database()
 	app := fiber.New()
 	origins := os.Getenv("ALLOW_ORIGINS")
 	// 🔓 CORS configuration
