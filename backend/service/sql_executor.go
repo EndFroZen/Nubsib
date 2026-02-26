@@ -18,10 +18,9 @@ type QueryResult struct {
 // pdpaSensitiveColumns — column ที่ต้อง mask ตาม PDPA
 // key = ชื่อ column (lowercase), value = ประเภทการ mask
 var pdpaSensitiveColumns = map[string]string{
-	// ชื่อ-นามสกุล
+	// ชื่อ-นามสกุล (pname ไม่ mask เพราะเป็นแค่คำนำหน้า เช่น นาย/นาง/น.ส.)
 	"fname": "name",
 	"lname": "name",
-	"pname": "name",
 	// เลขบัตรประชาชน
 	"cid":         "cid",
 	"patient_cid": "cid",
