@@ -36,6 +36,32 @@ func Chat(c *fiber.Ctx) error {
 		})
 	}
 	service.FLog("Result: ", result)
+
+	// --- Extract SQL แล้ว query จริง ---
+	sqlQuery := service.ExtractSQL(result)
+	if sqlQuery != "" {
+		queryResult, err := service.ExecuteSQL(sqlQuery)
+		if err != nil {
+			service.FLog("Query execution error: ", err)
+			// ยังส่ง AI response กลับไป พร้อมแจ้ง error ของ query
+			return c.JSON(fiber.Map{
+				"status":     "ok",
+				"message":    "SQL generated but query failed",
+				"data":       result,
+				"sql":        sqlQuery,
+				"queryError": err.Error(),
+			})
+		}
+
+		return c.JSON(fiber.Map{
+			"status":      "ok",
+			"message":     "Query executed successfully",
+			"data":        result,
+			"sql":         sqlQuery,
+			"queryResult": queryResult,
+		})
+	}
+
 	return c.JSON(fiber.Map{
 		"status":  "ok",
 		"message": "Chat endpoint is working!",
