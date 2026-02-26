@@ -23,11 +23,13 @@ const Nubsib = () => {
     const [message, setMessage] = useState('')
     const [response, setResponse] = useState('')
     const [loading, setLoading] = useState(false)
+    const [isBlocked, setIsBlocked] = useState(false)
 
     const AskChat = async () => {
         if (!message.trim()) return
         setLoading(true)
         setResponse('')
+        setIsBlocked(false)
         try {
             const res = await axios.post(`${ai_api}/api/chat`, {
                 prompt: message
@@ -37,7 +39,17 @@ const Nubsib = () => {
             }
         } catch (error) {
             console.log(error)
-            setResponse('Error: ' + error.message)
+            if (error.response && error.response.data) {
+                const data = error.response.data
+                if (data.status === 'blocked') {
+                    setIsBlocked(true)
+                    setResponse(data.message)
+                } else {
+                    setResponse(data.message || error.message)
+                }
+            } else {
+                setResponse('Error: ' + error.message)
+            }
         } finally {
             setLoading(false)
         }
@@ -63,7 +75,23 @@ const Nubsib = () => {
                         </Button>
                     </div>
 
-                    {response && (
+                    {response && isBlocked && (
+                        <Card className="border-2 border-red-400 bg-red-50 mb-4">
+                            <CardBody>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Chip color="danger" variant="flat" size="sm">🚫 SQL ถูกบล็อก</Chip>
+                                </div>
+                                <p className="text-red-700 text-sm">
+                                    {response}
+                                </p>
+                                <p className="text-gray-500 text-xs mt-2">
+                                    ระบบอนุญาตเฉพาะคำสั่ง SELECT (อ่านข้อมูล) เท่านั้น ไม่อนุญาต INSERT, UPDATE, DELETE หรือคำสั่งแก้ไขข้อมูลอื่นๆ
+                                </p>
+                            </CardBody>
+                        </Card>
+                    )}
+
+                    {response && !isBlocked && (
                         <Card>
                             <CardBody>
                                 <h3 className="font-bold mb-2">Generated SQL:</h3>

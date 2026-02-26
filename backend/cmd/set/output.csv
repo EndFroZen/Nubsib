@@ -1,0 +1,18 @@
+name,type,data_type,description,example
+s_drugitems,table,string,ตารางนี้เก็บข้อมูลรายการยาและเวชภัณฑ์ ใช้สำหรับระบุตัวตนและข้อมูลพื้นฐานที่ไม่เปลี่ยนแปลงบ่อย ห้ามใช้ตารางนี้เพียงลำพังหากคำถามเกี่ยวข้องกับการมารับบริการในวันนั้นๆ (Visits) การตรวจรักษา หรือค่าใช้จ่าย ให้ใช้ icode (รหัสยา) เป็น Key หลักในการเชื่อมต่อ (Join) กับตารางอื่นๆ,NULL
+icode,column,string,รหัสยา / รหัสเวชภัณฑ์,1900152
+name,column,string,ชื่อยา (ภาษาไทย),**CYCLOPHOSPHAMIDE Inj. (stock)
+strength,column,string,ความแรงของยา เช่น 500 mg,200 mg.
+units,column,string,หน่วยนับ เช่น เม็ด,Vial
+dosageform,column,string,รูปแบบยา เช่น Tablet,INJECTIONS
+drugnote,column,string,หมายเหตุเกี่ยวกับยา,ccppi:cyclophosphamide:endoxan
+istatus,column,string,สถานะการใช้งาน (เช่น 1=ใช้งาน 0=ยกเลิก),N
+paidst,column,string,สถานะการคิดเงิน (เช่น คิดเงิน/ไม่คิดเงิน),N
+price_lock,column,string,ล็อกราคาไม่ให้แก้ไข,N
+icode_guid,column,string,รหัส GUID ของรายการยา,0
+ename,column,string,ชื่อยา (ภาษาอังกฤษ),"  "
+cost,column,string,ต้นทุนยา,16711935
+income,column,string,หมวดรายได้ที่ผูกกับยา,N
+is_medication,column,string,เป็นยา (1=ใช่ 0=ไม่ใช่),NULL
+use_paidst,column,string,ใช้สถานะการชำระเงินจากระบบ,cyclophosphamide (ENDOXAN) inj. 200 mg/vial
+oldcode,column,string,รหัสเดิมของยา,121.000
