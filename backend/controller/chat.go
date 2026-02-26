@@ -1,0 +1,44 @@
+package controller
+
+import (
+	"api-nubsib/models"
+	"api-nubsib/service"
+	"strings"
+
+	"github.com/gofiber/fiber/v2"
+)
+
+func Chat(c *fiber.Ctx) error {
+	var req models.Request
+	if err := c.BodyParser(&req); err != nil {
+		service.FLog("Error parsing request: ", err)
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"status":  "error",
+			"message": "Invalid request",
+		})
+	}
+	service.FLog("Request: ", req.Prompt)
+	result, err := service.AiGenerate(req.Prompt)
+	if err != nil {
+		service.FLog("Error generating content: ", err)
+
+		// ตรวจว่าเป็น SQL safety error หรือไม่
+		if strings.Contains(err.Error(), "SQL ไม่ปลอดภัย") {
+			return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
+				"status":  "blocked",
+				"message": err.Error(),
+			})
+		}
+
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"status":  "error",
+			"message": err.Error(),
+		})
+	}
+	service.FLog("Result: ", result)
+	return c.JSON(fiber.Map{
+		"status":  "ok",
+		"message": "Chat endpoint is working!",
+		"data":    result,
+	})
+}
