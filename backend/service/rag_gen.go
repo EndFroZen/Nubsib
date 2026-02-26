@@ -46,14 +46,8 @@ func RagGen() {
 	}
 	vectorSize := len(dummyEmb)
 
-	// 2. Ensure collection exists
+	// 2. Ensure collection exists (ไม่ลบ collection เก่า — ถ้ามีข้อมูลอยู่แล้วจะ skip ingestion)
 	collectionName := "medical_knowledge"
-
-	// ลบ collection เก่าแล้วสร้างใหม่ เพราะ format เปลี่ยนจาก row-level → table-level
-	err = deleteCollection(qdrantURL.String(), collectionName)
-	if err != nil {
-		log.Printf("Note: Could not delete old collection (may not exist): %v", err)
-	}
 
 	err = ensureCollectionExists(qdrantURL.String(), collectionName, vectorSize)
 	if err != nil {

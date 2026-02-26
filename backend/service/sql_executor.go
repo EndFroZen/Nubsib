@@ -4,6 +4,7 @@ import (
 	"api-nubsib/config"
 	"context"
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -12,6 +13,78 @@ type QueryResult struct {
 	Columns []string                 `json:"columns"`
 	Rows    []map[string]interface{} `json:"rows"`
 	Count   int                      `json:"count"`
+}
+
+// pdpaSensitiveColumns — column ที่ต้อง mask ตาม PDPA
+// key = ชื่อ column (lowercase), value = ประเภทการ mask
+var pdpaSensitiveColumns = map[string]string{
+	// ชื่อ-นามสกุล
+	"fname": "name",
+	"lname": "name",
+	"pname": "name",
+	// เลขบัตรประชาชน
+	"cid":         "cid",
+	"patient_cid": "cid",
+}
+
+// maskName — mask ชื่อ/นามสกุล เช่น "สมชาย" → "ส***"
+func maskName(value string) string {
+	if value == "" || value == "-" || value == "NULL" {
+		return value
+	}
+	runes := []rune(value)
+	if len(runes) <= 1 {
+		return value
+	}
+	return string(runes[0]) + "***"
+}
+
+// maskCID — mask เลขบัตรประชาชน เช่น "1234567890123" → "X-XXXX-XXXX-XX-3"
+func maskCID(value string) string {
+	if value == "" || value == "-" || value == "NULL" {
+		return value
+	}
+	// แสดงเฉพาะตัวสุดท้าย
+	cleaned := strings.ReplaceAll(value, "-", "")
+	cleaned = strings.ReplaceAll(cleaned, " ", "")
+	if len(cleaned) < 4 {
+		return "****"
+	}
+	last4 := cleaned[len(cleaned)-4:]
+	return "X-XXXX-XXXX-" + last4
+}
+
+// applyPDPAMask — mask ข้อมูลส่วนบุคคลในผลลัพธ์ Query
+func applyPDPAMask(columns []string, rows []map[string]interface{}) {
+	// หา column ที่ต้อง mask
+	maskMap := make(map[string]string) // colName → maskType
+	for _, col := range columns {
+		colLower := strings.ToLower(col)
+		if maskType, ok := pdpaSensitiveColumns[colLower]; ok {
+			maskMap[col] = maskType
+		}
+	}
+
+	if len(maskMap) == 0 {
+		return // ไม่มี column ที่ต้อง mask
+	}
+
+	// Mask ทุกแถว
+	for _, row := range rows {
+		for col, maskType := range maskMap {
+			val, exists := row[col]
+			if !exists || val == nil {
+				continue
+			}
+			strVal := fmt.Sprintf("%v", val)
+			switch maskType {
+			case "name":
+				row[col] = maskName(strVal)
+			case "cid":
+				row[col] = maskCID(strVal)
+			}
+		}
+	}
 }
 
 // ExecuteSQL รัน SQL ที่ผ่าน validation แล้วกับ PostgreSQL (READ-ONLY)
@@ -72,7 +145,10 @@ func ExecuteSQL(sql string) (*QueryResult, error) {
 		return nil, fmt.Errorf("❌ Rows iteration error: %v", rows.Err())
 	}
 
-	FLog(fmt.Sprintf("✅ Query completed — %d rows returned", len(resultRows)))
+	// --- PDPA: mask ข้อมูลส่วนบุคคลก่อนส่งออก ---
+	applyPDPAMask(columns, resultRows)
+
+	FLog(fmt.Sprintf("✅ Query completed — %d rows returned (PDPA masked)", len(resultRows)))
 
 	return &QueryResult{
 		Columns: columns,
