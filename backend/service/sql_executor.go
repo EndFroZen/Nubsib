@@ -21,21 +21,40 @@ var pdpaSensitiveColumns = map[string]string{
 	// ชื่อ-นามสกุล (pname ไม่ mask เพราะเป็นแค่คำนำหน้า เช่น นาย/นาง/น.ส.)
 	"fname": "name",
 	"lname": "name",
+	// HN
+	"hn": "hn",
 	// เลขบัตรประชาชน
 	"cid":         "cid",
 	"patient_cid": "cid",
 }
 
-// maskName — mask ชื่อ/นามสกุล เช่น "สมชาย" → "ส***"
+// maskName — mask ชื่อ/นามสกุล โชว์ครึ่งแรก + X เท่ากับจำนวนที่ซ่อน
+// เช่น "สมชาย" → "สมXXX", "สุสิธิอุมา" → "สุสิธXXXXX"
 func maskName(value string) string {
 	if value == "" || value == "-" || value == "NULL" {
 		return value
 	}
 	runes := []rune(value)
-	if len(runes) <= 1 {
+	if len(runes) <= 2 {
+		return string(runes[0]) + strings.Repeat("X", len(runes)-1)
+	}
+	half := len(runes) / 2
+	if half < 2 {
+		half = 2
+	}
+	hidden := len(runes) - half
+	return string(runes[:half]) + strings.Repeat("X", hidden)
+}
+
+// maskHN — mask HN เช่น "0028632" → "002XXX2"
+func maskHN(value string) string {
+	if value == "" || value == "-" || value == "NULL" {
 		return value
 	}
-	return string(runes[0]) + "***"
+	if len(value) <= 4 {
+		return "XXX"
+	}
+	return value[:3] + "XXX" + value[len(value)-1:]
 }
 
 // maskCID — mask เลขบัตรประชาชน เช่น "1234567890123" → "X-XXXX-XXXX-XX-3"
@@ -47,7 +66,7 @@ func maskCID(value string) string {
 	cleaned := strings.ReplaceAll(value, "-", "")
 	cleaned = strings.ReplaceAll(cleaned, " ", "")
 	if len(cleaned) < 4 {
-		return "****"
+		return "XXXX"
 	}
 	last4 := cleaned[len(cleaned)-4:]
 	return "X-XXXX-XXXX-" + last4
@@ -79,6 +98,8 @@ func applyPDPAMask(columns []string, rows []map[string]interface{}) {
 			switch maskType {
 			case "name":
 				row[col] = maskName(strVal)
+			case "hn":
+				row[col] = maskHN(strVal)
 			case "cid":
 				row[col] = maskCID(strVal)
 			}
