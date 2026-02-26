@@ -19,7 +19,7 @@ import remarkGfm from 'remark-gfm'
 const dateFormat = 'YYYY-MM-DD';
 const format = 'HH:mm';
 
-const ROWS_PER_PAGE = 15;
+const ROWS_PER_PAGE = 20;
 
 const Nubsib = () => {
     const [message, setMessage] = useState('')
@@ -199,13 +199,14 @@ const Nubsib = () => {
                                     }
                                 >
                                     <TableHeader>
-                                        {queryResult.columns.map((col) => (
+                                        {['#', ...queryResult.columns].map((col) => (
                                             <TableColumn key={col}>{col}</TableColumn>
                                         ))}
                                     </TableHeader>
                                     <TableBody>
                                         {paginatedRows.map((row, rowIdx) => (
                                             <TableRow key={rowIdx}>
+                                                <TableCell>{(page - 1) * ROWS_PER_PAGE + rowIdx + 1}</TableCell>
                                                 {queryResult.columns.map((col) => (
                                                     <TableCell key={col}>
                                                         {row[col] !== null && row[col] !== undefined
